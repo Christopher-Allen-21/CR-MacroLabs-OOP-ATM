@@ -1,5 +1,7 @@
 public class ATM {
 
+    User currentUser = new User();
+
     public ATM(){
 
     }

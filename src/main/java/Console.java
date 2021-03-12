@@ -35,6 +35,7 @@ public class Console {
         Console.println("|                              |");
         Console.println("|                              |");
         Console.println("--------------------------------");
+        Console.println("| Enter 00 for Previous Screen |");
         Console.println("|       Enter 99 to Quit       |");
         Console.println("--------------------------------");
     }
@@ -51,30 +52,34 @@ public class Console {
         Console.println("|                              |");
         Console.println("|                              |");
         Console.println("--------------------------------");
+        Console.println("| Enter 00 for Previous Screen |");
         Console.println("|       Enter 99 to Quit       |");
         Console.println("--------------------------------");
     }
 
-    public void displaySelectAccountScreen(){
+    public void displaySelectAccountScreen(String userName){
         Console.println("--------------------------------");
         Console.println("|   Welcome to ZCW ATM User!   |");
         Console.println("--------------------------------");
         Console.println("|                              |");
+        Console.println("  Welcome %s                    ",userName);
         Console.println("|    Please enter a number:    |");
         Console.println("|    1. Savings Account        |");
         Console.println("|    2. Checking Account       |");
         Console.println("|    3. Investment Account     |");
         Console.println("|                              |");
         Console.println("--------------------------------");
+        Console.println("| Enter 00 for Previous Screen |");
         Console.println("|       Enter 99 to Quit       |");
         Console.println("--------------------------------");
     }
 
-    public void displayAccountOptionsScreen(){
+    public void displayAccountOptionsScreen(String userName){
         Console.println("--------------------------------");
         Console.println("|   Welcome to ZCW ATM User!   |");
         Console.println("--------------------------------");
         Console.println("|                              |");
+        Console.println("  Welcome %s                    ",userName);
         Console.println("|    Please enter a number:    |");
         Console.println("|    1. Check Balance          |");
         Console.println("|    2. Withdraw               |");
@@ -85,6 +90,7 @@ public class Console {
         Console.println("|    7. Print Trans. History   |");
         Console.println("|                              |");
         Console.println("--------------------------------");
+        Console.println("| Enter 00 for Previous Screen |");
         Console.println("|       Enter 99 to Quit       |");
         Console.println("--------------------------------");
     }
