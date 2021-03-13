@@ -44,6 +44,7 @@ public class Console {
         Console.println("--------------------------------");
         Console.println("|                              |");
         Console.println("  User: %s                    ",userName);
+        Console.println("|                              |");
         Console.println("| Please enter your password:  |");
         Console.println("|                              |");
         Console.println("|                              |");
@@ -61,6 +62,7 @@ public class Console {
         Console.println("--------------------------------");
         Console.println("|                              |");
         Console.println("  User: %s                    ",userName);
+        Console.println("|                              |");
         Console.println("| Invalid Password.            |");
         Console.println("| Please enter your password:  |");
         Console.println("|                              |");
@@ -79,7 +81,8 @@ public class Console {
         Console.println("--------------------------------");
         Console.println("|                              |");
         Console.println("  User: %s                    ",userName);
-        Console.println("|    Please enter a number:    |");
+        Console.println("|                              |");
+        Console.println("| Please enter a number:       |");
         Console.println("|    1. Savings Account        |");
         Console.println("|    2. Checking Account       |");
         Console.println("|    3. Investment Account     |");
@@ -96,8 +99,9 @@ public class Console {
         Console.println("--------------------------------");
         Console.println("|                              |");
         Console.println("  User: %s                    ",userName);
+        Console.println("|                              |");
         Console.println("| Invalid Selection.           |");
-        Console.println("|    Please enter a number:    |");
+        Console.println("| Please enter a number:       |");
         Console.println("|    1. Savings Account        |");
         Console.println("|    2. Checking Account       |");
         Console.println("|    3. Investment Account     |");
@@ -113,9 +117,10 @@ public class Console {
         Console.println("|    ZipCodeWilmington ATM     |");
         Console.println("--------------------------------");
         Console.println("|                              |");
-        Console.println("  User: %s                    ",userName);
-        Console.println("  Account: %s                    ",accountType);
-        Console.println("|    Please enter a number:    |");
+        Console.println("  User: %s                      ",userName);
+        Console.println("  Account Type: %s              ",accountType);
+        Console.println("|                              |");
+        Console.println("| Please enter a number:       |");
         Console.println("|    1. Check Balance          |");
         Console.println("|    2. Withdraw               |");
         Console.println("|    3. Deposit                |");
@@ -135,10 +140,11 @@ public class Console {
         Console.println("|    ZipCodeWilmington ATM     |");
         Console.println("--------------------------------");
         Console.println("|                              |");
-        Console.println("  User: %s                    ",userName);
-        Console.println("  Account: %s                    ",accountType);
+        Console.println("  User: %s                      ",userName);
+        Console.println("  Account Type: %s              ",accountType);
+        Console.println("|                              |");
         Console.println("| Invalid Selection.           |");
-        Console.println("|    Please enter a number:    |");
+        Console.println("| Please enter a number:       |");
         Console.println("|    1. Check Balance          |");
         Console.println("|    2. Withdraw               |");
         Console.println("|    3. Deposit                |");

@@ -3,20 +3,14 @@ public class ATM {
     //User currentUser = new User();
     String tempPassword = "password123";
 
-
-    public ATM(){
-
-    }
-
     public void run(){
-        Console console1 = new Console();
 
-        console1.displayUserNamePrompt();
+        Console.displayUserNamePrompt();
         String userName = Console.getStringInput();
 
         while(true){
             if(userName.equals("99")){
-                break;
+                System.exit(0);
             }
             else{
                 passwordPromptScreen(userName);
@@ -36,7 +30,7 @@ public class ATM {
                 run();
             }
             else if(password.equals("99")){
-                break;
+                System.exit(0);
             }
             else{
                 Console.displayInvalidPasswordPrompt(userName);
@@ -62,6 +56,9 @@ public class ATM {
             }
             else if(accountSelection.equals("00")){
                 run();
+            }
+            else if(accountSelection.equals("99")){
+                System.exit(0);
             }
             else{
                 Console.displayInvalidSelectAccountScreen(userName);
@@ -97,6 +94,9 @@ public class ATM {
             }
             else if(acctOptionSelection.equals("00")){
                 selectAccountScreen(userName);
+            }
+            else if(acctOptionSelection.equals("99")){
+                System.exit(0);
             }
             else{
                 Console.displayInvalidAccountOptionsScreen(userName,accountType);
