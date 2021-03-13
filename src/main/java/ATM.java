@@ -23,7 +23,7 @@ public class ATM {
 
         while(true){
             String password = Console.getStringInput();
-            if(password.equals(tempPassword)){ //make this password == currentUser.getPassword
+            if(password.equals(tempPassword)){ //    if(password == currentUser.getPassword())
                 selectAccountScreen(userName);
             }
             else if(password.equals("00")){
@@ -72,25 +72,28 @@ public class ATM {
         while(true){
             String acctOptionSelection = Console.getStringInput();
             if(acctOptionSelection.equals("1")){
-                System.out.println("Option 1");
+                System.out.println("Option 1"); // currentUser.checkBalance()
             }
             else if(acctOptionSelection.equals("2")){
-                System.out.println("Option 2");
+                System.out.println("Option 2"); // currentUser.withdraw(double amount)
             }
             else if(acctOptionSelection.equals("3")){
-                System.out.println("Option 3");
+                System.out.println("Option 3"); // currentUser.deposit(double amount)
             }
             else if(acctOptionSelection.equals("4")){
-                System.out.println("Option 4");
+                System.out.println("Option 4"); // currentUser.transferInternal(double amount, AccountType acct)
             }
             else if(acctOptionSelection.equals("5")){
-                System.out.println("Option 5");
+                System.out.println("Option 5"); // currentUser.transferExternal(double amount, User otherUser, AccountType acct)
             }
             else if(acctOptionSelection.equals("6")){
-                System.out.println("Option 6");
+                System.out.println("Option 6"); // currentUser.createNewAccount(AccountType acct)
             }
             else if(acctOptionSelection.equals("7")){
-                System.out.println("Option 7");
+                System.out.println("Option 7"); // currentUser.closeAccount(AccountType acct)
+            }
+            else if(acctOptionSelection.equals("8")){
+                System.out.println("Option 8"); // currentUser.printTransactionHistory()
             }
             else if(acctOptionSelection.equals("00")){
                 selectAccountScreen(userName);

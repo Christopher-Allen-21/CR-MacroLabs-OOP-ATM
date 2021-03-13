@@ -16,13 +16,6 @@ public class Console {
             return userInput;
         }
 
-        public static Double getDoubleInput(String prompt) {
-            Scanner scanner = new Scanner(System.in);
-            println(prompt);
-            Double userInput = scanner.nextDouble();
-            return userInput;
-        }
-
     public static void displayUserNamePrompt(){
         Console.println("--------------------------------");
         Console.println("|    ZipCodeWilmington ATM     |");
@@ -124,10 +117,11 @@ public class Console {
         Console.println("|    1. Check Balance          |");
         Console.println("|    2. Withdraw               |");
         Console.println("|    3. Deposit                |");
-        Console.println("|    4. Transfer               |");
-        Console.println("|    5. Open New Account       |");
-        Console.println("|    6. Close Account          |");
-        Console.println("|    7. Print Trans. History   |");
+        Console.println("|    4. Transfer (Internal)    |");
+        Console.println("|    5. Transfer (External)    |");
+        Console.println("|    6. Open New Account       |");
+        Console.println("|    7. Close Account          |");
+        Console.println("|    8. Print Trans. History   |");
         Console.println("|                              |");
         Console.println("--------------------------------");
         Console.println("| Enter 00 for Previous Screen |");
@@ -148,10 +142,11 @@ public class Console {
         Console.println("|    1. Check Balance          |");
         Console.println("|    2. Withdraw               |");
         Console.println("|    3. Deposit                |");
-        Console.println("|    4. Transfer               |");
-        Console.println("|    5. Open New Account       |");
-        Console.println("|    6. Close Account          |");
-        Console.println("|    7. Print Trans. History   |");
+        Console.println("|    4. Transfer (Internal)    |");
+        Console.println("|    5. Transfer (External)    |");
+        Console.println("|    6. Open New Account       |");
+        Console.println("|    7. Close Account          |");
+        Console.println("|    8. Print Trans. History   |");
         Console.println("|                              |");
         Console.println("--------------------------------");
         Console.println("| Enter 00 for Previous Screen |");
