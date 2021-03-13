@@ -19,4 +19,8 @@ public abstract class BankAccounts {
         this.status = newStatus;
     }
 
+    public String transferMoney(Account account1, double moneyToTransfer, Account account2) {
+        String outputToUser = "";
+    }
+
 }
