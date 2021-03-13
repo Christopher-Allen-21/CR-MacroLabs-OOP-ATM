@@ -1,5 +1,3 @@
-import java.util.ArrayList;
-
 public abstract class BankAccounts {
     User currentUser = new User();
     //Is that^^^ needed?
@@ -11,9 +9,11 @@ public abstract class BankAccounts {
     public void setBalance(double balance) {
         this.balance = balance;
     }
+
     public double checkBalance() {
         return balance;
     }
+
     public void depositMoney(double deposit) {
         balance += deposit;
     }
@@ -41,8 +41,8 @@ public abstract class BankAccounts {
             outputToUser += "Transfer of $" + moneyToTransfer + " completed";
         }
         return outputToUser;
-    }
 
+    }
 
     public void amountWithdrawing(double balance, double amountToWithdraw){
         if (balance >= amountToWithdraw);
@@ -76,13 +76,8 @@ public abstract class BankAccounts {
             numOfAccounts++;
             return b.getAccountNum(); */
     }
-
-    public void openAccount(String account, User name) {
-        /*
-        Take in string of account type and the User
-        If account already exists, tell user
-        Otherwise, add account type to User map
-         */
-        name.add(account);
-    }
 }
+
+
+
+
