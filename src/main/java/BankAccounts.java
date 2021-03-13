@@ -44,9 +44,20 @@ public abstract class BankAccounts {
 
     }
 
-    public void amountWithdrawing(double balance, double amountToWithdraw){
-        if (balance >= amountToWithdraw);
+    public void amountWithdrawing(double balance, double amountToWithdraw) {
+        if (balance >= amountToWithdraw) ;
         balance = balance - amountToWithdraw;
+    }
+
+    //compare withdrawal methods
+    /*public void withdraw(double amountToWithdraw) {
+        double currentBalance = checkBalance();
+        if (currentBalance >= amountToWithdraw) {
+            currentBalance -= amountToWithdraw;
+            setBalance(currentBalance);
+        }
+    }*/
+
 
             /* Would like to use this to open new account
              What languages are being used in Justin's associated accounts
@@ -74,8 +85,8 @@ public abstract class BankAccounts {
             // This will happen in the case there were no matches.
             accounts[numOfAccounts] = b;
             numOfAccounts++;
-            return b.getAccountNum(); */
-    }
+            return b.getAccountNum();
+    }*/
 }
 
 
