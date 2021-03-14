@@ -25,4 +25,10 @@ public class Checking extends BankAccounts{
         Checking.createCheckingAccountNumber();
         balance = 0.00;
     }
+
+    public void closeCheckingAccount() {
+        if (checkBalance() == 0.00) {
+
+        }
+    }
 }
