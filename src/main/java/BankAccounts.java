@@ -38,7 +38,7 @@ public abstract class BankAccounts {
         double currentBalance = checkBalance();
         if (currentBalance >= amountToWithdraw) {
             currentBalance -= amountToWithdraw;
-            this.balance = currentBalance;
+            this.balance = Math.round(currentBalance * 100.00) / 100.00;
             enoughFunds = true;
         }
         return enoughFunds;
