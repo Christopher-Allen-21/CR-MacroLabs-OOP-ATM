@@ -75,13 +75,13 @@ public class ATM {
                 System.out.println("Option 1"); // currentUser.checkBalance()
             }
             else if(acctOptionSelection.equals("2")){
-                System.out.println("Option 2"); // currentUser.withdraw(double amount)
+                System.out.println("Option 2"); // currentUser.getAccount().withdraw(double amount)
             }
             else if(acctOptionSelection.equals("3")){
                 System.out.println("Option 3"); // currentUser.deposit(double amount)
             }
             else if(acctOptionSelection.equals("4")){
-                System.out.println("Option 4"); // currentUser.transferInternal(double amount, AccountType acct)
+                System.out.println("Option 4"); // currentUser.transferInternal(double amount, AccountType acct, A)
             }
             else if(acctOptionSelection.equals("5")){
                 System.out.println("Option 5"); // currentUser.transferExternal(double amount, User otherUser, AccountType acct)
