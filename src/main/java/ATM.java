@@ -58,7 +58,9 @@ public class ATM {
             else if(accountSelection.equals("3")){
                 accountOptionsScreen(currentUser,currentUser.getInvestmentAcct());
             }
-            else if(accountSelection.equals("00")){
+            else if(accountSelection.equals("4")) {
+                deleteAccount(currentUser);
+            } else if(accountSelection.equals("00")){
                 run();
             }
             else if(accountSelection.equals("99")){
@@ -93,10 +95,10 @@ public class ATM {
             else if(acctOptionSelection.equals("6")){
                 System.out.println("Option 6"); // currentUser.createNewAccount(AccountType acct)
             }
+//            else if(acctOptionSelection.equals("7")){
+//                deleteAccount(currentUser, accountType);
+//            }
             else if(acctOptionSelection.equals("7")){
-                deleteAccount(currentUser, accountType);
-            }
-            else if(acctOptionSelection.equals("8")){
                 printTransactionList(currentUser, accountType);
             }
             else if(acctOptionSelection.equals("00")){
@@ -474,12 +476,12 @@ public class ATM {
     }
 
 
-    public void deleteAccount(User currentUser, BankAccounts accountType) {
+    public void deleteAccount(User currentUser) {
         while(true) {
             Console.displayAreYouSureScreen(currentUser.getUserName());
             String command = Console.getStringInput();
             if (command.equals("00")) {
-                accountOptionsScreen(currentUser,accountType);
+                selectAccountScreen(currentUser);
             }
             else if (command.equals("99")) {
                 System.exit(0);

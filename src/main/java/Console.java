@@ -95,7 +95,8 @@ public class Console {
         Console.println("|    1. Savings Account        |");
         Console.println("|    2. Checking Account       |");
         Console.println("|    3. Investment Account     |");
-        Console.println("|                              |");
+        Console.println("|    4. Close Accounts         |");
+        Console.println( "|                              |");
         Console.println("--------------------------------");
         Console.println("| Enter 00 to Return to Login  |");
         Console.println("|       Enter 99 to Quit       |");
@@ -114,6 +115,7 @@ public class Console {
         Console.println("|    1. Savings Account        |");
         Console.println("|    2. Checking Account       |");
         Console.println("|    3. Investment Account     |");
+        Console.println("|    4. Close Accounts         |");
         Console.println("|                              |");
         Console.println("--------------------------------");
         Console.println("| Enter 00 to Return to Login  |");
@@ -136,8 +138,7 @@ public class Console {
         Console.println("|    4. Transfer (Internal)    |");
         Console.println("|    5. Transfer (External)    |");
         Console.println("|    6. Open New Account       |");
-        Console.println("|    7. Close Account          |");
-        Console.println("|    8. Print Trans. History   |");
+        Console.println("|    7. Print Trans. History   |");
         Console.println("|                              |");
         Console.println("--------------------------------");
         Console.println("| Enter 00 for Previous Screen |");
@@ -161,8 +162,7 @@ public class Console {
         Console.println("|    4. Transfer (Internal)    |");
         Console.println("|    5. Transfer (External)    |");
         Console.println("|    6. Open New Account       |");
-        Console.println("|    7. Close Account          |");
-        Console.println("|    8. Print Trans. History   |");
+        Console.println("|    7. Print Trans. History   |");
         Console.println("|                              |");
         Console.println("--------------------------------");
         Console.println("| Enter 00 for Previous Screen |");
