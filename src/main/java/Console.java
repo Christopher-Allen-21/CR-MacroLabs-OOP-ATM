@@ -36,7 +36,7 @@ public class Console {
         Console.println("|    ZipCodeWilmington ATM     |");
         Console.println("--------------------------------");
         Console.println("|                              |");
-        Console.println("|       Invalid Username       |");
+        Console.println("|    Username not recognized   |");
         Console.println("| Please enter valid user name:|");
         Console.println("|                              |");
         Console.println("|                              |");
@@ -221,7 +221,7 @@ public class Console {
         Console.println("--------------------------------");
     }
 
-    public static void displayInvalidNumberEnteredScreen(String userName,String accountType,String command){
+    public static void displayInvalidNumberEnteredScreen(String userName,String accountType){
         Console.println("--------------------------------");
         Console.println("|    ZipCodeWilmington ATM     |");
         Console.println("--------------------------------");
@@ -229,9 +229,9 @@ public class Console {
         Console.println("  User: %s                      ",userName);
         Console.println("  Account Type: %s              ",accountType);
         Console.println("|                              |");
-        Console.println("|        Invalid Entry.        |");
+        Console.println("|        Invalid Entry.       |");
         Console.println("|    Enter 00 to return to     |");
-        Console.println("        %s screen               ",command);
+        Console.println("|        previous screen       |");
         Console.println("|                              |");
         Console.println("--------------------------------");
         Console.println("| Enter 00 for Previous Screen |");

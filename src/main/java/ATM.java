@@ -85,7 +85,7 @@ public class ATM {
                 depositPromptScreen(currentUser,accountType);
             }
             else if(acctOptionSelection.equals("4")){
-                System.out.println("Option 4"); // currentUser.transferInternal(double amount, AccountType acct, A)
+                transferPromptScreen(currentUser,accountType);
             }
             else if(acctOptionSelection.equals("5")){
                 System.out.println("Option 5"); // currentUser.transferExternal(double amount, User otherUser, AccountType acct)
@@ -156,7 +156,7 @@ public class ATM {
     public void invalidNumberEnteredScreen(User currentUser,BankAccounts accountType,String depWithTrans) {
 
         while(true) {
-            Console.displayInvalidNumberEnteredScreen(currentUser.getUserName(),accountType.toString(),depWithTrans);
+            Console.displayInvalidNumberEnteredScreen(currentUser.getUserName(),accountType.toString());
             String command = Console.getStringInput();
             if (command.equals("00")) {
                 if(depWithTrans.equals("deposit")){
@@ -266,21 +266,26 @@ public class ATM {
             else if (transferAmount.equals("99")) {
                 System.exit(0);
             }
-            else if(accountType.checkBalance()>=Double.parseDouble(transferAmount)){
-                //PROMPT FOR ACCOUNT TO TRANSFER TO
-                transferToChosenAccountScreen(currentUser,accountType,transferAmount);
+            else if(isDouble(transferAmount)){
+                if(accountType.checkBalance()>=Double.parseDouble(transferAmount)){
+                    transferToChosenAccountScreen(currentUser,accountType,transferAmount);
+                }
+                else{
+                    acctBalance = accountType.checkBalance();
+                    transferInsufficientFundsScreen(currentUser,accountType,transferAmount,acctBalance);
+                }
             }
             else{
-                acctBalance = accountType.checkBalance();
-                transferInsufficientFundsScreen(currentUser,accountType,transferAmount,acctBalance);
+                invalidNumberEnteredScreen(currentUser,accountType,"transfer internal");
             }
+
 
 
         }
     }
 
     public void transferToChosenAccountScreen(User currentUser,BankAccounts accountType, String transferAmount) {
-        Console.displayAccountToTransferToPromptScreen(currentUser.getUserName(),accountType.toString());
+        Console.println("NEED TO IMPLEMENT LOL");
 
 
     }
