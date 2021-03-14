@@ -1,6 +1,9 @@
+import java.util.ArrayList;
+
 public abstract class BankAccounts {
     double balance;
     String status;
+    ArrayList<Integer> accountNumbersInUse = new ArrayList<Integer>();
 
 
     public void zeroBalance() {

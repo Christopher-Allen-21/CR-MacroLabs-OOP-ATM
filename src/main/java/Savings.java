@@ -1,8 +1,7 @@
-import java.util.ArrayList;
+
 
 public class Savings extends BankAccounts{
     Integer accountNumber;
-    ArrayList<Integer> accountNumbersInUse = new ArrayList<Integer>();
 
     public boolean transferFromSavings(BankAccounts accTransferTo, double amountToTransfer) {
         boolean enoughFunds = false;
