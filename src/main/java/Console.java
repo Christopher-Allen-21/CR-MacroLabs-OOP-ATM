@@ -291,4 +291,22 @@ public class Console {
         Console.println("--------------------------------");
     }
 
+    public static void displayTransactionListScreen(String userName, String transactionList){
+        Console.println("--------------------------------");
+        Console.println("|    ZipCodeWilmington ATM     |");
+        Console.println("--------------------------------");
+        Console.println("|                              |");
+        Console.println("  User: %s                    ",userName);
+        Console.println("|                              |");
+        Console.println("%s                              ", transactionList);
+        Console.println("|                              |");
+        Console.println("|                              |");
+        Console.println("|                              |");
+        Console.println("|                              |");
+        Console.println("--------------------------------");
+        Console.println("| Enter 00 to Return to Login  |");
+        Console.println("|       Enter 99 to Quit       |");
+        Console.println("--------------------------------");
+    }
+
 }

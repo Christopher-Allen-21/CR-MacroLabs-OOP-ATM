@@ -46,10 +46,12 @@ public abstract class BankAccounts {
         return enoughFunds;
     }
 
-    public String[] getTransactionHistory() {
-        String[] printedList = (String[]) transactionList.toArray();
+    public String getTransactionHistory() {
+        String printedList = transactionList.toString();
         return printedList;
     }
+
+
 
 }
 

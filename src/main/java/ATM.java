@@ -97,7 +97,7 @@ public class ATM {
                 System.out.println("Option 7"); // currentUser.closeAccount(AccountType acct)
             }
             else if(acctOptionSelection.equals("8")){
-                System.out.println("Option 8"); // currentUser.printTransactionHistory()
+                printTransactionList(currentUser, accountType);
             }
             else if(acctOptionSelection.equals("00")){
                 selectAccountScreen(currentUser);
@@ -360,6 +360,19 @@ public class ATM {
     }
 
 
+    public void printTransactionList(User currentUser, BankAccounts accountType) {
+        Console.displayTransactionListScreen(currentUser.getUserName(), accountType.getTransactionHistory());
+
+        while(true) {
+            String command = Console.getStringInput();
+            if (command.equals("00")) {
+                accountOptionsScreen(currentUser,accountType);
+            }
+            else if (command.equals("99")) {
+                System.exit(0);
+            }
+        }
+    }
 
 
 
