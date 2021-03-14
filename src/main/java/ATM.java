@@ -50,13 +50,13 @@ public class ATM {
             String accountSelection = Console.getStringInput();
 
             if(accountSelection.equals("1")){
-                accountOptionsScreen(currentUser,currentUser.savingsAcct);
+                accountOptionsScreen(currentUser,currentUser.getSavingsAcct());
             }
             else if(accountSelection.equals("2")){
-                accountOptionsScreen(currentUser, currentUser.checkingAcct);
+                accountOptionsScreen(currentUser, currentUser.getCheckingAcct());
             }
             else if(accountSelection.equals("3")){
-                accountOptionsScreen(currentUser,currentUser.investmentAcct);
+                accountOptionsScreen(currentUser,currentUser.getInvestmentAcct());
             }
             else if(accountSelection.equals("00")){
                 run();
