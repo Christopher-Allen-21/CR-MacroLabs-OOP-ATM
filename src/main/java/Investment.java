@@ -1,12 +1,11 @@
 public class Investment extends BankAccounts{
-    Investment investment = new Investment();
 
     public boolean transferFromInvestments(BankAccounts accTransferTo, double amountToTransfer) {
         boolean enoughFunds = false;
-        double checkingBalance = investment.checkBalance();
+        double checkingBalance = checkBalance();
         if (checkingBalance > amountToTransfer) {
             accTransferTo.depositMoney(amountToTransfer);
-            investment.withdraw(amountToTransfer);
+            withdraw(amountToTransfer);
             enoughFunds = true;
         }
         return enoughFunds;

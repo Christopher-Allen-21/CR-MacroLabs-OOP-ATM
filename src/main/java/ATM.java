@@ -1,30 +1,34 @@
 public class ATM {
 
-    //User currentUser = new User();
-    String tempPassword = "password123";
-
     public void run(){
 
         Console.displayUserNamePrompt();
-        String userName = Console.getStringInput();
+        ArchiveOfUsers archive = new ArchiveOfUsers();
+        User currentUser;
+
 
         while(true){
-            if(userName.equals("99")){
+            String userName = Console.getStringInput();
+            if(archive.checkForExistingUser(userName)){
+                currentUser = archive.getArchivedUser(archive.getUserIndex(userName));
+                passwordPromptScreen(currentUser);
+            }
+            else if(userName.equals("99")){
                 System.exit(0);
             }
             else{
-                passwordPromptScreen(userName);
+                Console.displayInvalidUserNamePrompt();
             }
         }
     }
 
-    public void passwordPromptScreen(String userName){
-        Console.displayPasswordPrompt(userName);
+    public void passwordPromptScreen(User currentUser){
+        Console.displayPasswordPrompt(currentUser.getUserName());
 
         while(true){
             String password = Console.getStringInput();
-            if(password.equals(tempPassword)){ //    if(password == currentUser.getPassword())
-                selectAccountScreen(userName);
+            if(password.equals(currentUser.getPassword())){
+                selectAccountScreen(currentUser);
             }
             else if(password.equals("00")){
                 run();
@@ -33,26 +37,26 @@ public class ATM {
                 System.exit(0);
             }
             else{
-                Console.displayInvalidPasswordPrompt(userName);
+                Console.displayInvalidPasswordPrompt(currentUser.getUserName());
             }
 
         }
     }
 
-    public void selectAccountScreen(String userName){
-        Console.displaySelectAccountScreen(userName);
+    public void selectAccountScreen(User currentUser){
+        Console.displaySelectAccountScreen(currentUser.getUserName());
 
         while(true){
             String accountSelection = Console.getStringInput();
 
             if(accountSelection.equals("1")){
-                accountOptionsScreen(userName,"Savings");
+                accountOptionsScreen(currentUser,"Savings");
             }
             else if(accountSelection.equals("2")){
-                accountOptionsScreen(userName,"Checking");
+                accountOptionsScreen(currentUser,"Checking");
             }
             else if(accountSelection.equals("3")){
-                accountOptionsScreen(userName,"Investment");
+                accountOptionsScreen(currentUser,"Investment");
             }
             else if(accountSelection.equals("00")){
                 run();
@@ -61,18 +65,18 @@ public class ATM {
                 System.exit(0);
             }
             else{
-                Console.displayInvalidSelectAccountScreen(userName);
+                Console.displayInvalidSelectAccountScreen(currentUser.getUserName());
             }
         }
     }
 
-    public void accountOptionsScreen(String userName,String accountType) {
-        Console.displayAccountOptionsScreen(userName,accountType);
+    public void accountOptionsScreen(User currentUser,String accountType) {
+        Console.displayAccountOptionsScreen(currentUser.getUserName(),accountType);
 
         while(true){
             String acctOptionSelection = Console.getStringInput();
             if(acctOptionSelection.equals("1")){
-                System.out.println("Option 1"); // currentUser.checkBalance()
+                checkAccountBalanceScreen(currentUser,accountType);
             }
             else if(acctOptionSelection.equals("2")){
                 System.out.println("Option 2"); // currentUser.getAccount().withdraw(double amount)
@@ -96,14 +100,44 @@ public class ATM {
                 System.out.println("Option 8"); // currentUser.printTransactionHistory()
             }
             else if(acctOptionSelection.equals("00")){
-                selectAccountScreen(userName);
+                selectAccountScreen(currentUser);
             }
             else if(acctOptionSelection.equals("99")){
                 System.exit(0);
             }
             else{
-                Console.displayInvalidAccountOptionsScreen(userName,accountType);
+                Console.displayInvalidAccountOptionsScreen(currentUser.getUserName(),accountType);
             }
         }
     }
+
+    public void checkAccountBalanceScreen(User currentUser,String accountType) {
+        while(true) {
+            double acctBalance;
+            if (accountType.equals("Savings")) {
+                acctBalance = currentUser.savingsAcct.checkBalance();
+            }
+            else if (accountType.equals("Checking")) {
+                acctBalance = currentUser.checkingAcct.checkBalance();
+            }
+            else {
+                acctBalance = currentUser.investmentAcct.checkBalance();
+            }
+            Console.displayCheckAcctBalance(currentUser.getUserName(), accountType, acctBalance);
+
+            String acctOptionSelection = Console.getStringInput();
+            if (acctOptionSelection.equals("00")) {
+                accountOptionsScreen(currentUser,accountType);
+            }
+            else if (acctOptionSelection.equals("99")) {
+                System.exit(0);
+            }
+
+        }
+    }
+
+
+
+
+
 }

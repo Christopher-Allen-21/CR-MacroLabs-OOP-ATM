@@ -1,12 +1,11 @@
 public class Savings extends BankAccounts{
-    Savings savings = new Savings();
 
     public boolean transferFromSavings(BankAccounts accTransferTo, double amountToTransfer) {
         boolean enoughFunds = false;
-        double checkingBalance = savings.checkBalance();
+        double checkingBalance = checkBalance();
         if (checkingBalance > amountToTransfer) {
             accTransferTo.depositMoney(amountToTransfer);
-            savings.withdraw(amountToTransfer);
+            withdraw(amountToTransfer);
             enoughFunds = true;
         }
         return enoughFunds;

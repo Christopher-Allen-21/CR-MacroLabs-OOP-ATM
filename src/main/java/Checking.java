@@ -1,12 +1,12 @@
 public class Checking extends BankAccounts{
-    Checking checking = new Checking();
+    //Checking checking = new Checking();
 
     public boolean transferFromChecking(BankAccounts accTransferTo, double amountToTransfer) {
         boolean enoughFunds = false;
-        double checkingBalance = checking.checkBalance();
+        double checkingBalance = checkBalance();
         if (checkingBalance > amountToTransfer) {
             accTransferTo.depositMoney(amountToTransfer);
-            checking.withdraw(amountToTransfer);
+            withdraw(amountToTransfer);
             enoughFunds = true;
         }
         return enoughFunds;

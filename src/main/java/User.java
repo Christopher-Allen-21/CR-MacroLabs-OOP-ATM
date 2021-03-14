@@ -4,49 +4,32 @@ import java.util.ArrayList;
 
 
 public class User {
-   private String firstName = "";
-   private String lastName = "";
-   private byte password[];
-   public BankAccounts checking = new Checking();
-   public BankAccounts savings = new Savings();
-   public BankAccounts investment = new Investment();
+   private String userName = "";
+   private String password;
+   public BankAccounts checkingAcct = new Checking();
+   public BankAccounts savingsAcct = new Savings();
+   public BankAccounts investmentAcct = new Investment();
 
 
-   public User(String firstName, String lastName,  String password, BankAccounts checking, BankAccounts savings, BankAccounts investment) {
-       this.firstName = firstName;
-       this.lastName = lastName;
-       this.checking = checking;
-       this.savings = savings;
-       this.investment = investment;
+   public User(String userName,  String password, BankAccounts checking, BankAccounts savings, BankAccounts investment) {
+       this.userName = userName;
+       this.checkingAcct = checking;
+       this.savingsAcct = savings;
+       this.investmentAcct = investment;
+       this.password = password;
 
-
-
-
-       try {
-           MessageDigest md = MessageDigest.getInstance("MD5");
-           this.password= md.digest(password.getBytes());
-       } catch (NoSuchAlgorithmException e) {
-           System.err.println("error, caught");
-           e.printStackTrace();
-           System.exit(1);
-
-       }
    }
 
-    public String getFirstName() {
-        return firstName;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public String getPassword(){
+       return password;
     }
 
     /*public String[] getAccountNumber() {
