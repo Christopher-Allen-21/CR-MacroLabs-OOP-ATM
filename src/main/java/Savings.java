@@ -9,6 +9,7 @@ public class Savings extends BankAccounts{
         if (checkingBalance > amountToTransfer) {
             accTransferTo.depositMoney(amountToTransfer);
             withdraw(amountToTransfer);
+            transactionList.add("Transferred $" + amountToTransfer + " to " + accTransferTo + " from Savings");
             enoughFunds = true;
         }
         return enoughFunds;

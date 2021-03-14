@@ -9,6 +9,7 @@ public class Investment extends BankAccounts{
         if (checkingBalance > amountToTransfer) {
             accTransferTo.depositMoney(amountToTransfer);
             withdraw(amountToTransfer);
+            transactionList.add("Transferred $" + amountToTransfer + " to " + accTransferTo + " from Investment");
             enoughFunds = true;
         }
         return enoughFunds;

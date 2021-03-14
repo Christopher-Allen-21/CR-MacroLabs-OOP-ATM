@@ -10,6 +10,7 @@ public class Checking extends BankAccounts{
         if (checkingBalance > amountToTransfer) {
             accTransferTo.depositMoney(amountToTransfer);
             withdraw(amountToTransfer);
+            transactionList.add("Transferred $" + amountToTransfer + " to " + accTransferTo + " from Checking");
             enoughFunds = true;
         }
         return enoughFunds;
@@ -45,6 +46,7 @@ public class Checking extends BankAccounts{
         setAccountNumber();
         balance = 0.00;
         status = "Open";
+        transactionList.add("Created new checking account");
     }
 
     public boolean closeCheckingAccount() {

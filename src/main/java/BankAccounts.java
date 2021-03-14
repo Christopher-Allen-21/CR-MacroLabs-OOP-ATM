@@ -4,6 +4,7 @@ public abstract class BankAccounts {
     double balance;
     String status;
     ArrayList<Integer> accountNumbersInUse = new ArrayList<Integer>();
+    ArrayList<String> transactionList = new ArrayList<String>();
 
 
     public void zeroBalance() {
@@ -16,6 +17,7 @@ public abstract class BankAccounts {
 
     public double depositMoney(double deposit) {
         balance += deposit;
+        transactionList.add("Deposited $" + deposit);
         return checkBalance();
     }
 
@@ -38,9 +40,15 @@ public abstract class BankAccounts {
         if (currentBalance >= amountToWithdraw) {
             currentBalance -= amountToWithdraw;
             this.balance = Math.round(currentBalance * 100.00) / 100.00;
+            transactionList.add("Withdrew $" + amountToWithdraw);
             enoughFunds = true;
         }
         return enoughFunds;
+    }
+
+    public String[] getTransactionHistory() {
+        String[] printedList = (String[]) transactionList.toArray();
+        return printedList;
     }
 
 }
