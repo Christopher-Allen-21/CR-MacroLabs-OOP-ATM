@@ -309,4 +309,42 @@ public class Console {
         Console.println("--------------------------------");
     }
 
+    public static void displayAreYouSureScreen(String userName) {
+        Console.println("--------------------------------");
+        Console.println("|    ZipCodeWilmington ATM     |");
+        Console.println("--------------------------------");
+        Console.println("|                              |");
+        Console.println("  User: %s                    ",userName);
+        Console.println("|                              |");
+        Console.println("|  Are you sure you want to    |");
+        Console.println("|    close your accounts?      |");
+        Console.println("|                              |");
+        Console.println("|  Enter password to confirm:  |");
+        Console.println("|                              |");
+        Console.println("--------------------------------");
+        Console.println("| Enter 00 to Return to Login  |");
+        Console.println("|       Enter 99 to Quit       |");
+        Console.println("--------------------------------");
+    }
+
+    public static void accountDeletedScreen(String userName, double checkingBalance, double savingsBalance, double investmentBalance) {
+        Console.println("--------------------------------");
+        Console.println("|    ZipCodeWilmington ATM     |");
+        Console.println("--------------------------------");
+        Console.println("|                              |");
+        Console.println("Account closed: %s              ",userName);
+        Console.println("Withdrawn from Checking: %s     ",checkingBalance);
+        Console.println("Withdrawn from Savings: %s      ",savingsBalance);
+        Console.println("Withdrawn from Investment: %s   ",investmentBalance);
+        Console.println("|                              |");
+        Console.println("|                              |");
+        Console.println("|          Goodbye!            |");
+        Console.println("|                              |");
+        Console.println("|                              |");
+        Console.println("|                              |");
+        Console.println("--------------------------------");
+        Console.println("| Enter 00 to Return to Login  |");
+        Console.println("|       Enter 99 to Quit       |");
+        Console.println("--------------------------------");
+    }
 }

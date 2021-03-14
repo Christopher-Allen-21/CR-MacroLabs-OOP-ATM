@@ -442,9 +442,9 @@ public class ATM {
 
 
     public void printTransactionList(User currentUser, BankAccounts accountType) {
-        Console.displayTransactionListScreen(currentUser.getUserName(), accountType.getTransactionHistory());
 
         while(true) {
+            Console.displayTransactionListScreen(currentUser.getUserName(), accountType.getTransactionHistory());
             String command = Console.getStringInput();
             if (command.equals("00")) {
                 accountOptionsScreen(currentUser,accountType);
@@ -456,7 +456,34 @@ public class ATM {
     }
 
 
+    public void deleteAccount(User currentUser, BankAccounts accountType) {
+        while(true) {
+            Console.displayAreYouSureScreen(currentUser.getUserName());
+            String command = Console.getStringInput();
+            if (command.equals("00")) {
+                accountOptionsScreen(currentUser,accountType);
+            }
+            else if (command.equals("99")) {
+                System.exit(0);
+            } else if (command.equals(currentUser.getPassword())) {
+                archive.deleteAccount(currentUser);
+                accountDeletedScr(currentUser.toString());
+            }
+        }
+    }
 
+    private void accountDeletedScr(User currentUser) {
+        while(true) {
+            Console.accountDeletedScreen(currentUser.getUserName(), currentUser.getCheckingAcct().checkBalance(), currentUser.getSavingsAcct().checkBalance(), currentUser.getInvestmentAcct().checkBalance());
+            String command = Console.getStringInput();
+            if (command.equals("00")) {
+                run();
+            }
+            else if (command.equals("99")) {
+                System.exit(0);
+            }
+        }
+    }
 
 
     boolean isDouble(String str) {
