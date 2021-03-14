@@ -36,6 +36,10 @@ public class Savings extends BankAccounts{
         }
     }
 
+    public Integer getAccountNumber() {
+        return accountNumber;
+    }
+
     public void openSavingsAccount() {
         setAccountNumber();
         balance = 0.00;
@@ -46,6 +50,7 @@ public class Savings extends BankAccounts{
         boolean isClosed = false;
         if (checkBalance() == 0.00) {
             changeStatus("Closed");
+            accountNumbersInUse.remove(getAccountNumber());
             isClosed = true;
         }
         return isClosed;
