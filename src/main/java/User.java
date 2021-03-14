@@ -6,9 +6,9 @@ import java.util.ArrayList;
 public class User {
    private String userName = "";
    private String password;
-   public BankAccounts checkingAcct = new Checking();
-   public BankAccounts savingsAcct = new Savings();
-   public BankAccounts investmentAcct = new Investment();
+   private BankAccounts checkingAcct = new Checking();
+   private BankAccounts savingsAcct = new Savings();
+   private BankAccounts investmentAcct = new Investment();
 
 
    public User(String userName,  String password, BankAccounts checking, BankAccounts savings, BankAccounts investment) {
@@ -17,7 +17,6 @@ public class User {
        this.savingsAcct = savings;
        this.investmentAcct = investment;
        this.password = password;
-
    }
 
     public String getUserName() {
@@ -32,9 +31,28 @@ public class User {
        return password;
     }
 
+    public BankAccounts getSavingsAcct() {
+        return savingsAcct;
+    }
 
+    public void setSavingsAcct(BankAccounts account) {
+        this.savingsAcct = account;
+    }
 
+    public BankAccounts getCheckingAcct() {
+        return checkingAcct;
+    }
 
+    public void setCheckingAcct(BankAccounts account) {
+        this.checkingAcct = account;
+    }
 
+    public BankAccounts getInvestmentAcct() {
+        return investmentAcct;
+    }
+
+    public void setInvestmentAcct(BankAccounts account) {
+        this.investmentAcct = account;
+    }
 
 }
