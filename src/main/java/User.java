@@ -1,5 +1,4 @@
-
-
+import java.util.ArrayList;
 
 public class User {
    private String userName = "";
@@ -7,6 +6,7 @@ public class User {
    private BankAccounts checkingAcct = new Checking();
    private BankAccounts savingsAcct = new Savings();
    private BankAccounts investmentAcct = new Investment();
+   ArrayList<BankAccounts> userAccounts = new ArrayList<BankAccounts>();
 
 
    public User(String userName,  String password, BankAccounts checking, BankAccounts savings, BankAccounts investment) {
@@ -15,6 +15,9 @@ public class User {
        this.savingsAcct = savings;
        this.investmentAcct = investment;
        this.password = password;
+       userAccounts.add(checking);
+       userAccounts.add(savings);
+       userAccounts.add(investment);
    }
 
     public String getUserName() {

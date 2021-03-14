@@ -47,15 +47,15 @@ public class Investment extends BankAccounts{
         status = "Open";
     }
 
-    public boolean closeInvestmentAccount() {
-        boolean isClosed = false;
-        if (checkBalance() == 0.00) {
-            changeStatus("Closed");
-            accountNumbersInUse.remove(getAccountNumber());
-            isClosed = true;
-        }
-        return isClosed;
-    }
+//    public boolean closeInvestmentAccount() {
+//        boolean isClosed = false;
+//        if (checkBalance() == 0.00) {
+//            changeStatus("Closed");
+//            accountNumbersInUse.remove(getAccountNumber());
+//            isClosed = true;
+//        }
+//        return isClosed;
+//    }
 
     @Override
     public String toString() {
