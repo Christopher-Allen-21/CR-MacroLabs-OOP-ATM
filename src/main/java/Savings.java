@@ -1,4 +1,5 @@
 public class Savings extends BankAccounts{
+    Integer accountNumber;
 
     public boolean transferFromSavings(BankAccounts accTransferTo, double amountToTransfer) {
         boolean enoughFunds = false;
@@ -12,7 +13,7 @@ public class Savings extends BankAccounts{
     }
 
     public Integer createSavingsAccountNumber() {
-        Integer accountNumber = 333334 + (int) (Math.random() * ((666666 - 333334) + 1));
+        accountNumber = 333334 + (int) (Math.random() * ((666666 - 333334) + 1));
         /*
         if accountNumber is equal to that of one in archives, generate again
         recursion here? Call itself until it gets a unique number?
@@ -21,7 +22,7 @@ public class Savings extends BankAccounts{
     }
 
     public void openSavingsAccount() {
-        createSavingsAccountNumber();
+        accountNumber = createSavingsAccountNumber();
         balance = 0.00;
     }
 
