@@ -15,8 +15,16 @@ public abstract class BankAccounts {
         balance += deposit;
     }
 
+
+    //ATM can handle what user can do if frozen or not
     public void changeStatus(String newStatus) {
-        this.status = newStatus;
+        if (newStatus.equalsIgnoreCase("frozen") || newStatus.equalsIgnoreCase("open")) {
+            this.status = newStatus.toUpperCase();
+        }
+    }
+
+    public String getStatus() {
+        return this.status;
     }
 
     /*public void amountWithdrawing(double balance, double amountToWithdraw) {

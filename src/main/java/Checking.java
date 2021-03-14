@@ -1,5 +1,4 @@
 public class Checking extends BankAccounts{
-    //Checking checking = new Checking();
 
     public boolean transferFromChecking(BankAccounts accTransferTo, double amountToTransfer) {
         boolean enoughFunds = false;
@@ -12,8 +11,17 @@ public class Checking extends BankAccounts{
         return enoughFunds;
     }
 
-    public Integer createCheckingAccountNumber() {
+    public static Integer createCheckingAccountNumber() {
         Integer accountNumber = 111111 + (int) (Math.random() * ((333333 - 111111) + 1));
+        /*
+        if accountNumber is equal to that of one in archives, generate again
+        recursion here? Call itself until it gets a unique number?
+         */
         return accountNumber;
+    }
+
+    public void openCheckingAccount() {
+        Checking.createCheckingAccountNumber();
+        balance = 0.00;
     }
 }
