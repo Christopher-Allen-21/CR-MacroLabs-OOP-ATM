@@ -216,7 +216,7 @@ public class Console {
         Console.println("  Account Balance: $%s          ",acctBalance);
         Console.println("|                              |");
         Console.println("--------------------------------");
-        Console.println("| Enter 00 for Previous Screen |");
+        Console.println("| Enter 00 for Another Trans.  |");
         Console.println("|       Enter 99 to Quit       |");
         Console.println("--------------------------------");
     }
@@ -256,7 +256,7 @@ public class Console {
         Console.println("--------------------------------");
     }
 
-    public static void displayAccountToTransferToPromptScreen(String userName,String accountType){
+    public static void displayUserAccountToTransferToPromptScreen(String userName,String accountType,String accountOrUser){
         Console.println("--------------------------------");
         Console.println("|    ZipCodeWilmington ATM     |");
         Console.println("--------------------------------");
@@ -264,7 +264,7 @@ public class Console {
         Console.println("  User: %s                      ",userName);
         Console.println("  Account Type: %s              ",accountType);
         Console.println("|                              |");
-        Console.println("| Enter account to transfer to:|");
+        Console.println(" Enter %s to transfer to:       ",accountOrUser);
         Console.println("|                              |");
         Console.println("|                              |");
         Console.println("--------------------------------");

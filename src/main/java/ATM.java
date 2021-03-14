@@ -268,7 +268,7 @@ public class ATM {
             }
             else if(isDouble(transferAmount) && Double.parseDouble(transferAmount)>0){
                 if(accountType.checkBalance()>=Double.parseDouble(transferAmount)){
-                    transferToChosenAccountScreen(currentUser,accountType,transferAmount);
+                    transferInternalAccountScreen(currentUser,accountType,Double.parseDouble(transferAmount));
                 }
                 else{
                     acctBalance = accountType.checkBalance();
@@ -284,8 +284,40 @@ public class ATM {
         }
     }
 
-    public void transferToChosenAccountScreen(User currentUser,BankAccounts accountType, String transferAmount) {
-        Console.println("NEED TO IMPLEMENT LOL");
+    public void transferInternalAccountScreen(User currentUser,BankAccounts accountType, double transferAmount) {
+        Console.displayUserAccountToTransferToPromptScreen(currentUser.getUserName(),accountType.toString(),"account");
+
+        while(true) {
+            String accountToTransferTo = Console.getStringInput();
+
+
+            if (accountToTransferTo.equals("00")) {
+                transferPromptScreen(currentUser, accountType);
+            }
+            else if (accountToTransferTo.equals("99")) {
+                System.exit(0);
+            }
+            else if (accountToTransferTo.equalsIgnoreCase("savings") && !accountType.equals(currentUser.getSavingsAcct())) {
+                accountType.withdraw(transferAmount);
+                currentUser.getSavingsAcct().depositMoney(transferAmount);
+            }
+            else if (accountToTransferTo.equalsIgnoreCase("checking") && !accountType.equals(currentUser.getCheckingAcct())) {
+                accountType.withdraw(transferAmount);
+                currentUser.getInvestmentAcct().depositMoney(transferAmount);
+            }
+            else if (accountToTransferTo.equalsIgnoreCase("investment") && !accountType.equals(currentUser.getInvestmentAcct())) {
+                accountType.withdraw(transferAmount);
+                currentUser.getCheckingAcct().depositMoney(transferAmount);
+            }
+            else {
+                invalidNumberEnteredScreen(currentUser, accountType, "transfer internal");
+            }
+        }
+
+    }
+
+    public void transferExternalAccountScreen(User currentUser,BankAccounts accountType, String transferAmount) {
+        Console.displayUserAccountToTransferToPromptScreen(currentUser.getUserName(),accountType.toString(),"user");
 
 
     }
