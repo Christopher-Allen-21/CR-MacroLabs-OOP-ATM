@@ -1,8 +1,7 @@
-import java.util.ArrayList;
+
 
 public class Investment extends BankAccounts{
     Integer accountNumber;
-    ArrayList<Integer> accountNumbersInUse = new ArrayList<Integer>();
 
     public boolean transferFromInvestments(BankAccounts accTransferTo, double amountToTransfer) {
         boolean enoughFunds = false;
@@ -40,6 +39,7 @@ public class Investment extends BankAccounts{
     public void openInvestmentAccount() {
         setAccountNumber();
         balance = 0.00;
+        status = "Open";
     }
 
     public boolean closeInvestmentAccount() {
