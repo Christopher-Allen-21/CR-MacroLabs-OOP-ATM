@@ -1,6 +1,6 @@
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 
 public class SavingsTest {
@@ -71,5 +71,30 @@ public class SavingsTest {
         savings.transferFromSavings(investment, 5.62);
 
         assertEquals(15.38, savings.checkBalance());
+    }
+
+    @Test
+    public void savingsAccountNumber() {
+        Savings savings = new Savings();
+        Integer accountNum = savings.createSavingsAccountNumber();
+
+        assertTrue(accountNum >= 333334 && accountNum <= 666666);
+    }
+
+    @Test
+    public void closeSavingsTrue() {
+        Savings savings = new Savings();
+        savings.depositMoney(65.81);
+
+        assertFalse(savings.closeSavingsAccount());
+    }
+
+    @Test
+    public void closeSavingsFalse() {
+        Savings savings = new Savings();
+        savings.depositMoney(21.36);
+        savings.zeroBalance();
+
+        assertTrue(savings.closeSavingsAccount());
     }
 }

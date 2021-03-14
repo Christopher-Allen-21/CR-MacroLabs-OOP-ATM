@@ -11,8 +11,9 @@ public abstract class BankAccounts {
         return balance;
     }
 
-    public void depositMoney(double deposit) {
+    public double depositMoney(double deposit) {
         balance += deposit;
+        return checkBalance();
     }
 
 

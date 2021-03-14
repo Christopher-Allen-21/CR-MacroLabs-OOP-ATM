@@ -24,4 +24,13 @@ public class Investment extends BankAccounts{
         createInvestmentAccountNumber();
         balance = 0.00;
     }
+
+    public boolean closeInvestmentAccount() {
+        boolean isClosed = false;
+        if (checkBalance() == 0.00) {
+            changeStatus("Closed");
+            isClosed = true;
+        }
+        return isClosed;
+    }
 }

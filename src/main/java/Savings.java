@@ -24,4 +24,13 @@ public class Savings extends BankAccounts{
         createSavingsAccountNumber();
         balance = 0.00;
     }
+
+    public boolean closeSavingsAccount() {
+        boolean isClosed = false;
+        if (checkBalance() == 0.00) {
+            changeStatus("Closed");
+            isClosed = true;
+        }
+        return isClosed;
+    }
 }

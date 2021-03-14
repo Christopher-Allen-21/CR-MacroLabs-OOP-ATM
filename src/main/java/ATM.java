@@ -1,30 +1,34 @@
 public class ATM {
 
-    //User currentUser = new User();
-    String tempPassword = "password123";
-
     public void run(){
 
         Console.displayUserNamePrompt();
-        String userName = Console.getStringInput();
+        ArchiveOfUsers archive = new ArchiveOfUsers();
+        User currentUser;
+
 
         while(true){
-            if(userName.equals("99")){
+            String userName = Console.getStringInput();
+            if(archive.checkForExistingUser(userName)){
+                currentUser = archive.getArchivedUser(archive.getUserIndex(userName));
+                passwordPromptScreen(currentUser);
+            }
+            else if(userName.equals("99")){
                 System.exit(0);
             }
             else{
-                passwordPromptScreen(userName);
+                Console.displayInvalidUserNamePrompt();
             }
         }
     }
 
-    public void passwordPromptScreen(String userName){
-        Console.displayPasswordPrompt(userName);
+    public void passwordPromptScreen(User currentUser){
+        Console.displayPasswordPrompt(currentUser.getUserName());
 
         while(true){
             String password = Console.getStringInput();
-            if(password.equals(tempPassword)){ //    if(password == currentUser.getPassword())
-                selectAccountScreen(userName);
+            if(password.equals(currentUser.getPassword())){
+                selectAccountScreen(currentUser);
             }
             else if(password.equals("00")){
                 run();
@@ -33,26 +37,26 @@ public class ATM {
                 System.exit(0);
             }
             else{
-                Console.displayInvalidPasswordPrompt(userName);
+                Console.displayInvalidPasswordPrompt(currentUser.getUserName());
             }
 
         }
     }
 
-    public void selectAccountScreen(String userName){
-        Console.displaySelectAccountScreen(userName);
+    public void selectAccountScreen(User currentUser){
+        Console.displaySelectAccountScreen(currentUser.getUserName());
 
         while(true){
             String accountSelection = Console.getStringInput();
 
             if(accountSelection.equals("1")){
-                accountOptionsScreen(userName,"Savings");
+                accountOptionsScreen(currentUser,currentUser.savingsAcct);
             }
             else if(accountSelection.equals("2")){
-                accountOptionsScreen(userName,"Checking");
+                accountOptionsScreen(currentUser, currentUser.checkingAcct);
             }
             else if(accountSelection.equals("3")){
-                accountOptionsScreen(userName,"Investment");
+                accountOptionsScreen(currentUser,currentUser.investmentAcct);
             }
             else if(accountSelection.equals("00")){
                 run();
@@ -61,27 +65,27 @@ public class ATM {
                 System.exit(0);
             }
             else{
-                Console.displayInvalidSelectAccountScreen(userName);
+                Console.displayInvalidSelectAccountScreen(currentUser.getUserName());
             }
         }
     }
 
-    public void accountOptionsScreen(String userName,String accountType) {
-        Console.displayAccountOptionsScreen(userName,accountType);
+    public void accountOptionsScreen(User currentUser,BankAccounts accountType) {
+        Console.displayAccountOptionsScreen(currentUser.getUserName(),accountType.toString());
 
         while(true){
             String acctOptionSelection = Console.getStringInput();
             if(acctOptionSelection.equals("1")){
-                System.out.println("Option 1"); // currentUser.checkBalance()
+                checkAccountBalanceScreen(currentUser,accountType);
             }
             else if(acctOptionSelection.equals("2")){
-                System.out.println("Option 2"); // currentUser.withdraw(double amount)
+                withdrawPromptScreen(currentUser,accountType);
             }
             else if(acctOptionSelection.equals("3")){
-                System.out.println("Option 3"); // currentUser.deposit(double amount)
+                depositPromptScreen(currentUser,accountType);
             }
             else if(acctOptionSelection.equals("4")){
-                System.out.println("Option 4"); // currentUser.transferInternal(double amount, AccountType acct)
+                transferPromptScreen(currentUser,accountType);
             }
             else if(acctOptionSelection.equals("5")){
                 System.out.println("Option 5"); // currentUser.transferExternal(double amount, User otherUser, AccountType acct)
@@ -96,14 +100,223 @@ public class ATM {
                 System.out.println("Option 8"); // currentUser.printTransactionHistory()
             }
             else if(acctOptionSelection.equals("00")){
-                selectAccountScreen(userName);
+                selectAccountScreen(currentUser);
             }
             else if(acctOptionSelection.equals("99")){
                 System.exit(0);
             }
             else{
-                Console.displayInvalidAccountOptionsScreen(userName,accountType);
+                Console.displayInvalidAccountOptionsScreen(currentUser.getUserName(),accountType.toString());
             }
         }
     }
+
+    public void checkAccountBalanceScreen(User currentUser,BankAccounts accountType) {
+        while(true) {
+            double acctBalance;
+            acctBalance = accountType.checkBalance();
+
+            Console.displayCheckAcctBalance(currentUser.getUserName(), accountType.toString(), acctBalance);
+
+            String acctOptionSelection = Console.getStringInput();
+            if (acctOptionSelection.equals("00")) {
+                accountOptionsScreen(currentUser,accountType);
+            }
+            else if (acctOptionSelection.equals("99")) {
+                System.exit(0);
+            }
+
+        }
+    }
+
+    public void depositPromptScreen(User currentUser,BankAccounts accountType) {
+        Console.displayDepositWithdrawTransPromptScreen(currentUser.getUserName(),accountType.toString(),"deposit",accountType.checkBalance());
+
+        while(true) {
+            String depositAmount = Console.getStringInput();
+            double acctBalance;
+
+            if (depositAmount.equals("00")) {
+                accountOptionsScreen(currentUser,accountType);
+            }
+            else if (depositAmount.equals("99")) {
+                System.exit(0);
+            }
+            else if(isDouble(depositAmount)){
+                acctBalance = accountType.depositMoney(Double.parseDouble(depositAmount));
+                depositDisplayScreen(currentUser,accountType,depositAmount,acctBalance);
+            }
+            else{
+                invalidNumberEnteredScreen(currentUser,accountType,"deposit");
+            }
+
+        }
+    }
+
+    public void invalidNumberEnteredScreen(User currentUser,BankAccounts accountType,String depWithTrans) {
+
+        while(true) {
+            Console.displayInvalidNumberEnteredScreen(currentUser.getUserName(),accountType.toString());
+            String command = Console.getStringInput();
+            if (command.equals("00")) {
+                if(depWithTrans.equals("deposit")){
+                    depositPromptScreen(currentUser,accountType);
+                }
+                else if(depWithTrans.equals("withdraw")){
+                    withdrawPromptScreen(currentUser,accountType);
+                }
+                else if(depWithTrans.equals("transfer internal")){
+                    transferPromptScreen(currentUser,accountType);
+                }
+            }
+            else if (command.equals("99")) {
+                System.exit(0);
+            }
+
+        }
+    }
+
+    public void depositDisplayScreen(User currentUser,BankAccounts accountType, String depositAmount, double acctBalance) {
+        Console.displayDepositWithdrawBalanceScreen(currentUser.getUserName(),accountType.toString(),depositAmount,"Deposited",acctBalance);
+
+        while(true) {
+            String command = Console.getStringInput();
+            if (command.equals("00")) {
+                accountOptionsScreen(currentUser,accountType);
+            }
+            else if (command.equals("99")) {
+                System.exit(0);
+            }
+
+        }
+    }
+
+
+    public void withdrawPromptScreen(User currentUser,BankAccounts accountType) {
+        Console.displayDepositWithdrawTransPromptScreen(currentUser.getUserName(),accountType.toString(),"withdraw", accountType.checkBalance());
+
+        while(true) {
+            String withdrawAmount = Console.getStringInput();
+            double acctBalance;
+
+            if (withdrawAmount.equals("00")) {
+                accountOptionsScreen(currentUser,accountType);
+            }
+            else if (withdrawAmount.equals("99")) {
+                System.exit(0);
+            }
+            else if(isDouble(withdrawAmount)){
+                if(accountType.withdraw(Double.parseDouble(withdrawAmount))){
+                    acctBalance = accountType.checkBalance();
+                    withdrawDisplayScreen(currentUser,accountType,withdrawAmount,acctBalance);
+                }
+                else{
+                    acctBalance = accountType.checkBalance();
+                    withdrawInsufficientFundsScreen(currentUser,accountType,withdrawAmount,acctBalance);
+                }
+            }
+            else{
+                invalidNumberEnteredScreen(currentUser,accountType,"withdraw");
+            }
+
+        }
+    }
+
+    public void withdrawDisplayScreen(User currentUser,BankAccounts accountType, String withdrawAmount, double acctBalance) {
+        Console.displayDepositWithdrawBalanceScreen(currentUser.getUserName(),accountType.toString(),withdrawAmount,"Withdrawn",acctBalance);
+
+        while(true) {
+            String command = Console.getStringInput();
+            if (command.equals("00")) {
+                accountOptionsScreen(currentUser,accountType);
+            }
+            else if (command.equals("99")) {
+                System.exit(0);
+            }
+
+        }
+    }
+
+
+    public void withdrawInsufficientFundsScreen(User currentUser,BankAccounts accountType, String withdrawAmount, double acctBalance) {
+        Console.displayWithdrawTransInsufficientFundsScreen(currentUser.getUserName(),accountType.toString(),"Withdraw",acctBalance);
+
+        while(true) {
+            String command = Console.getStringInput();
+            if (command.equals("00")) {
+                accountOptionsScreen(currentUser,accountType);
+            }
+            else if (command.equals("99")) {
+                System.exit(0);
+            }
+
+        }
+    }
+
+    public void transferPromptScreen(User currentUser,BankAccounts accountType) {
+        Console.displayDepositWithdrawTransPromptScreen(currentUser.getUserName(),accountType.toString(),"transfer",accountType.checkBalance());
+
+        while(true) {
+            String transferAmount = Console.getStringInput();
+            double acctBalance;
+
+            if (transferAmount.equals("00")) {
+                accountOptionsScreen(currentUser,accountType);
+            }
+            else if (transferAmount.equals("99")) {
+                System.exit(0);
+            }
+            else if(isDouble(transferAmount)){
+                if(accountType.checkBalance()>=Double.parseDouble(transferAmount)){
+                    transferToChosenAccountScreen(currentUser,accountType,transferAmount);
+                }
+                else{
+                    acctBalance = accountType.checkBalance();
+                    transferInsufficientFundsScreen(currentUser,accountType,transferAmount,acctBalance);
+                }
+            }
+            else{
+                invalidNumberEnteredScreen(currentUser,accountType,"transfer internal");
+            }
+
+
+
+        }
+    }
+
+    public void transferToChosenAccountScreen(User currentUser,BankAccounts accountType, String transferAmount) {
+        Console.println("NEED TO IMPLEMENT LOL");
+
+
+    }
+
+    public void transferInsufficientFundsScreen(User currentUser,BankAccounts accountType, String withdrawAmount, double acctBalance) {
+        Console.displayWithdrawTransInsufficientFundsScreen(currentUser.getUserName(),accountType.toString(),"Transfer",acctBalance);
+
+        while(true) {
+            String command = Console.getStringInput();
+            if (command.equals("00")) {
+                accountOptionsScreen(currentUser,accountType);
+            }
+            else if (command.equals("99")) {
+                System.exit(0);
+            }
+
+        }
+    }
+
+
+
+
+
+
+    boolean isDouble(String str) {
+        try {
+            Double.parseDouble(str);
+            return true;
+        } catch (NumberFormatException e) {
+            return false;
+        }
+    }
+
 }
