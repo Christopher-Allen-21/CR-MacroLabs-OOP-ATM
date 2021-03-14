@@ -1,19 +1,5 @@
 public class ATM {
 
-<<<<<<< HEAD
-    User currentUser = new User();
-
-    public ATM(){
-
-    }
-
-    public void run(){
-        Console console1 = new Console();
-        console1.displayUserNamePrompt();
-
-    }
-}
-=======
     //User currentUser = new User();
     String tempPassword = "password123";
 
@@ -121,4 +107,3 @@ public class ATM {
         }
     }
 }
->>>>>>> 4d17ac7e053b5c83f2dceb39bdcd9f4f40009fdb

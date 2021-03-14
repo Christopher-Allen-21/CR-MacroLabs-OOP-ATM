@@ -1,13 +1,10 @@
 public abstract class BankAccounts {
-    User currentUser = new User();
-    //Is that^^^ needed?
-
-    double balance = 0.00;
-    String status = "Open";
+    double balance;
+    String status;
 
 
-    public void setBalance(double balance) {
-        this.balance = balance;
+    public void zeroBalance() {
+        this.balance = 0.00;
     }
 
     public double checkBalance() {
@@ -22,41 +19,19 @@ public abstract class BankAccounts {
         this.status = newStatus;
     }
 
-    //psuedo
-    public String transferMoney(Account account1, double moneyToTransfer, Account account2) {
-        /*
-        Needs to take in User account info of account losing money
-        Take in User account that will gain the money
-        Amount of Money to transfer
-         */
-        /*
-            Subtract from first account, add to second account, only if it won't overdraft
-         */
-        String outputToUser = "";
-        if (account1 < moneyToTransfer) {
-            outputToUser += "Insufficient funds";
-        } else {
-            account1 -= moneyToTransfer;
-            account2 += moneyToTransfer;
-            outputToUser += "Transfer of $" + moneyToTransfer + " completed";
-        }
-        return outputToUser;
-
-    }
-
-    public void amountWithdrawing(double balance, double amountToWithdraw) {
+    /*public void amountWithdrawing(double balance, double amountToWithdraw) {
         if (balance >= amountToWithdraw) ;
         balance = balance - amountToWithdraw;
-    }
+    }*/
 
     //compare withdrawal methods
-    /*public void withdraw(double amountToWithdraw) {
+    public void withdraw(double amountToWithdraw) {
         double currentBalance = checkBalance();
         if (currentBalance >= amountToWithdraw) {
             currentBalance -= amountToWithdraw;
-            setBalance(currentBalance);
+            this.balance = currentBalance;
         }
-    }*/
+    }
 
 
             /* Would like to use this to open new account
