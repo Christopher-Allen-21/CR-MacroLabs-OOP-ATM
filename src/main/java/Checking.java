@@ -24,4 +24,9 @@ public class Checking extends BankAccounts{
         Checking.createCheckingAccountNumber();
         balance = 0.00;
     }
+
+    @Override
+    public String toString(){
+        return "Checking";
+    }
 }

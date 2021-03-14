@@ -24,4 +24,9 @@ public class Savings extends BankAccounts{
         createSavingsAccountNumber();
         balance = 0.00;
     }
+
+    @Override
+    public String toString(){
+        return "Savings";
+    }
 }

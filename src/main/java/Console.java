@@ -186,7 +186,7 @@ public class Console {
         Console.println("--------------------------------");
     }
 
-    public static void displayDepositPromptScreen(String userName,String accountType){
+    public static void displayDepositWithdrawTransPromptScreen(String userName,String accountType,String command,double acctBalance){
         Console.println("--------------------------------");
         Console.println("|    ZipCodeWilmington ATM     |");
         Console.println("--------------------------------");
@@ -194,7 +194,8 @@ public class Console {
         Console.println("  User: %s                      ",userName);
         Console.println("  Account Type: %s              ",accountType);
         Console.println("|                              |");
-        Console.println("  Enter amount to deposit:     |");
+        Console.println("  Account Balance: $%s          ",acctBalance);
+        Console.println("  Enter amount to %s:           ",command);
         Console.println("|                              |");
         Console.println("|                              |");
         Console.println("--------------------------------");
@@ -203,7 +204,7 @@ public class Console {
         Console.println("--------------------------------");
     }
 
-    public static void displayDepositBalanceScreen(String userName,String accountType,String depositAmount,double acctBalance){
+    public static void displayDepositWithdrawBalanceScreen(String userName,String accountType,String amountChanged,String command,double acctBalance){
         Console.println("--------------------------------");
         Console.println("|    ZipCodeWilmington ATM     |");
         Console.println("--------------------------------");
@@ -211,7 +212,7 @@ public class Console {
         Console.println("  User: %s                      ",userName);
         Console.println("  Account Type: %s              ",accountType);
         Console.println("|                              |");
-        Console.println("  Amount Deposited: $%s         ",depositAmount);
+        Console.println("  Amount %s: $%s         ",command,amountChanged);
         Console.println("  Account Balance: $%s          ",acctBalance);
         Console.println("|                              |");
         Console.println("--------------------------------");
@@ -220,7 +221,7 @@ public class Console {
         Console.println("--------------------------------");
     }
 
-    public static void displayWithdrawPromptScreen(String userName,String accountType){
+    public static void displayInvalidNumberEnteredScreen(String userName,String accountType,String command){
         Console.println("--------------------------------");
         Console.println("|    ZipCodeWilmington ATM     |");
         Console.println("--------------------------------");
@@ -228,8 +229,9 @@ public class Console {
         Console.println("  User: %s                      ",userName);
         Console.println("  Account Type: %s              ",accountType);
         Console.println("|                              |");
-        Console.println("  Enter amount to withdraw:    |");
-        Console.println("|                              |");
+        Console.println("|        Invalid Entry.        |");
+        Console.println("|    Enter 00 to return to     |");
+        Console.println("        %s screen               ",command);
         Console.println("|                              |");
         Console.println("--------------------------------");
         Console.println("| Enter 00 for Previous Screen |");
@@ -237,7 +239,7 @@ public class Console {
         Console.println("--------------------------------");
     }
 
-    public static void displayWithdrawScreen(String userName,String accountType,String withdrawAmount,double acctBalance){
+    public static void displayWithdrawTransInsufficientFundsScreen(String userName,String accountType,String command, double acctBalance){
         Console.println("--------------------------------");
         Console.println("|    ZipCodeWilmington ATM     |");
         Console.println("--------------------------------");
@@ -245,7 +247,7 @@ public class Console {
         Console.println("  User: %s                      ",userName);
         Console.println("  Account Type: %s              ",accountType);
         Console.println("|                              |");
-        Console.println("  Amount Withdrawn: $%s         ",withdrawAmount);
+        Console.println("  Insufficient Funds to %s      ",command);
         Console.println("  Account Balance: $%s          ",acctBalance);
         Console.println("|                              |");
         Console.println("--------------------------------");
@@ -254,7 +256,7 @@ public class Console {
         Console.println("--------------------------------");
     }
 
-    public static void displayWithdrawInsufficientFundsScreen(String userName,String accountType,String withdrawAmount,double acctBalance){
+    public static void displayAccountToTransferToPromptScreen(String userName,String accountType){
         Console.println("--------------------------------");
         Console.println("|    ZipCodeWilmington ATM     |");
         Console.println("--------------------------------");
@@ -262,8 +264,8 @@ public class Console {
         Console.println("  User: %s                      ",userName);
         Console.println("  Account Type: %s              ",accountType);
         Console.println("|                              |");
-        Console.println(" Insufficient Funds to Withdraw ");
-        Console.println("  Account Balance: $%s          ",acctBalance);
+        Console.println("| Enter account to transfer to:|");
+        Console.println("|                              |");
         Console.println("|                              |");
         Console.println("--------------------------------");
         Console.println("| Enter 00 for Previous Screen |");

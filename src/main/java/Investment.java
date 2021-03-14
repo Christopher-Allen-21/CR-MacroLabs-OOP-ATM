@@ -24,4 +24,9 @@ public class Investment extends BankAccounts{
         createInvestmentAccountNumber();
         balance = 0.00;
     }
+
+    @Override
+    public String toString(){
+        return "Investment";
+    }
 }
