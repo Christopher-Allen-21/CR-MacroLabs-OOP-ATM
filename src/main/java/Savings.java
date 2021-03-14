@@ -1,5 +1,8 @@
+import java.util.ArrayList;
+
 public class Savings extends BankAccounts{
     Integer accountNumber;
+    ArrayList<Integer> accountNumbersInUse = new ArrayList<Integer>();
 
     public boolean transferFromSavings(BankAccounts accTransferTo, double amountToTransfer) {
         boolean enoughFunds = false;
@@ -14,15 +17,28 @@ public class Savings extends BankAccounts{
 
     public Integer createSavingsAccountNumber() {
         accountNumber = 333334 + (int) (Math.random() * ((666666 - 333334) + 1));
-        /*
-        if accountNumber is equal to that of one in archives, generate again
-        recursion here? Call itself until it gets a unique number?
-         */
         return accountNumber;
     }
 
+    public boolean accountNumAlreadyExist(Integer newAccountNum) {
+        for (Integer accountNum : accountNumbersInUse) {
+            if (accountNum != newAccountNum) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public void setAccountNumber() {
+        Integer accountNum = createSavingsAccountNumber();
+        if (!accountNumAlreadyExist(accountNum)) {
+            accountNumber = accountNum;
+            accountNumbersInUse.add(accountNum);
+        }
+    }
+
     public void openSavingsAccount() {
-        accountNumber = createSavingsAccountNumber();
+        setAccountNumber();
         balance = 0.00;
     }
 
@@ -33,5 +49,10 @@ public class Savings extends BankAccounts{
             isClosed = true;
         }
         return isClosed;
+    }
+
+    @Override
+    public String toString() {
+        return "Savings";
     }
 }
