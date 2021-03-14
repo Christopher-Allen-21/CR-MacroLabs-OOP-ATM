@@ -220,4 +220,55 @@ public class Console {
         Console.println("--------------------------------");
     }
 
+    public static void displayWithdrawPromptScreen(String userName,String accountType){
+        Console.println("--------------------------------");
+        Console.println("|    ZipCodeWilmington ATM     |");
+        Console.println("--------------------------------");
+        Console.println("|                              |");
+        Console.println("  User: %s                      ",userName);
+        Console.println("  Account Type: %s              ",accountType);
+        Console.println("|                              |");
+        Console.println("  Enter amount to withdraw:    |");
+        Console.println("|                              |");
+        Console.println("|                              |");
+        Console.println("--------------------------------");
+        Console.println("| Enter 00 for Previous Screen |");
+        Console.println("|       Enter 99 to Quit       |");
+        Console.println("--------------------------------");
+    }
+
+    public static void displayWithdrawScreen(String userName,String accountType,String withdrawAmount,double acctBalance){
+        Console.println("--------------------------------");
+        Console.println("|    ZipCodeWilmington ATM     |");
+        Console.println("--------------------------------");
+        Console.println("|                              |");
+        Console.println("  User: %s                      ",userName);
+        Console.println("  Account Type: %s              ",accountType);
+        Console.println("|                              |");
+        Console.println("  Amount Withdrawn: $%s         ",withdrawAmount);
+        Console.println("  Account Balance: $%s          ",acctBalance);
+        Console.println("|                              |");
+        Console.println("--------------------------------");
+        Console.println("| Enter 00 for Previous Screen |");
+        Console.println("|       Enter 99 to Quit       |");
+        Console.println("--------------------------------");
+    }
+
+    public static void displayWithdrawInsufficientFundsScreen(String userName,String accountType,String withdrawAmount,double acctBalance){
+        Console.println("--------------------------------");
+        Console.println("|    ZipCodeWilmington ATM     |");
+        Console.println("--------------------------------");
+        Console.println("|                              |");
+        Console.println("  User: %s                      ",userName);
+        Console.println("  Account Type: %s              ",accountType);
+        Console.println("|                              |");
+        Console.println(" Insufficient Funds to Withdraw ");
+        Console.println("  Account Balance: $%s          ",acctBalance);
+        Console.println("|                              |");
+        Console.println("--------------------------------");
+        Console.println("| Enter 00 for Previous Screen |");
+        Console.println("|       Enter 99 to Quit       |");
+        Console.println("--------------------------------");
+    }
+
 }

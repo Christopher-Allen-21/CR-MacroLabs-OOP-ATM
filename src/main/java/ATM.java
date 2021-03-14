@@ -79,7 +79,7 @@ public class ATM {
                 checkAccountBalanceScreen(currentUser,accountType);
             }
             else if(acctOptionSelection.equals("2")){
-                System.out.println("Option 2"); // currentUser.getAccount().withdraw(double amount)
+                withdrawPromptScreen(currentUser,accountType);
             }
             else if(acctOptionSelection.equals("3")){
                 depositPromptScreen(currentUser,accountType);
@@ -180,4 +180,80 @@ public class ATM {
     }
 
 
+    public void withdrawPromptScreen(User currentUser,String accountType) {
+        Console.displayWithdrawPromptScreen(currentUser.getUserName(),accountType);
+
+        while(true) {
+            String withdrawAmount = Console.getStringInput();
+            double acctBalance;
+            if (accountType.equals("Savings")) {
+                if(currentUser.savingsAcct.withdraw(Double.parseDouble(withdrawAmount))){
+                    acctBalance = currentUser.savingsAcct.checkBalance();
+                    withdrawDisplayScreen(currentUser,accountType,withdrawAmount,acctBalance);
+                }
+                else{
+                    acctBalance = currentUser.savingsAcct.checkBalance();
+                    withdrawInsufficientFundsScreen(currentUser,accountType,withdrawAmount,acctBalance);
+                }
+            }
+            else if (accountType.equals("Checking")) {
+                if(currentUser.checkingAcct.withdraw(Double.parseDouble(withdrawAmount))){
+                    acctBalance = currentUser.checkingAcct.checkBalance();
+                    withdrawDisplayScreen(currentUser,accountType,withdrawAmount,acctBalance);
+                }
+                else{
+                    acctBalance = currentUser.checkingAcct.checkBalance();
+                    withdrawInsufficientFundsScreen(currentUser,accountType,withdrawAmount,acctBalance);
+                }
+            }
+            else if (accountType.equals("Investment")){
+                if(currentUser.investmentAcct.withdraw(Double.parseDouble(withdrawAmount))){
+                    acctBalance = currentUser.checkingAcct.checkBalance();
+                    withdrawDisplayScreen(currentUser,accountType,withdrawAmount,acctBalance);
+                }
+                else{
+                    acctBalance = currentUser.investmentAcct.checkBalance();
+                    withdrawInsufficientFundsScreen(currentUser,accountType,withdrawAmount,acctBalance);
+                }
+            }
+            else if (withdrawAmount.equals("00")) {
+                accountOptionsScreen(currentUser,accountType);
+            }
+            else if (withdrawAmount.equals("99")) {
+                System.exit(0);
+            }
+
+        }
+    }
+
+    public void withdrawDisplayScreen(User currentUser,String accountType, String withdrawAmount, double acctBalance) {
+        Console.displayWithdrawScreen(currentUser.getUserName(),accountType,withdrawAmount,acctBalance);
+
+        while(true) {
+            String command = Console.getStringInput();
+            if (command.equals("00")) {
+                accountOptionsScreen(currentUser,accountType);
+            }
+            else if (command.equals("99")) {
+                System.exit(0);
+            }
+
+        }
+    }
+
+
+    public void withdrawInsufficientFundsScreen(User currentUser,String accountType, String withdrawAmount, double acctBalance) {
+        Console.displayWithdrawInsufficientFundsScreen(currentUser.getUserName(),accountType,withdrawAmount,acctBalance);
+
+        while(true) {
+            String command = Console.getStringInput();
+            if (command.equals("00")) {
+                withdrawPromptScreen(currentUser,accountType);
+            }
+            else if (command.equals("99")) {
+                System.exit(0);
+            }
+
+        }
+    }
 }
