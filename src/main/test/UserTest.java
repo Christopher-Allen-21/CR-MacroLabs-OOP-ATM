@@ -1,7 +1,7 @@
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 
-class UserTest {
+public class  UserTest {
 
     BankAccounts mySavings = new Savings();
     BankAccounts myChecking = new Checking();

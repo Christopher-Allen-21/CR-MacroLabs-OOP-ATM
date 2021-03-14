@@ -1,4 +1,7 @@
+
+
 public class Investment extends BankAccounts{
+    Integer accountNumber;
 
     public boolean transferFromInvestments(BankAccounts accTransferTo, double amountToTransfer) {
         boolean enoughFunds = false;
@@ -12,21 +15,44 @@ public class Investment extends BankAccounts{
     }
 
     public Integer createInvestmentAccountNumber() {
-        Integer accountNumber = 666667 + (int) (Math.random() * ((999999 - 666667) + 1));
-        /*
-        if accountNumber is equal to that of one in archives, generate again
-        recursion here? Call itself until it gets a unique number?
-         */
+        accountNumber = 666667 + (int) (Math.random() * ((999999 - 666667) + 1));
         return accountNumber;
     }
 
+    public boolean accountNumbAlreadyExists(Integer newAccountNum) {
+        for (Integer accountNum : accountNumbersInUse) {
+            if (accountNum != newAccountNum) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public void setAccountNumber() {
+        Integer accountNum = createInvestmentAccountNumber();
+        if (!accountNumbAlreadyExists(accountNum)) {
+            accountNumber = accountNum;
+            accountNumbersInUse.add(accountNum);
+        }
+    }
+
     public void openInvestmentAccount() {
-        createInvestmentAccountNumber();
+        setAccountNumber();
         balance = 0.00;
+        status = "Open";
+    }
+
+    public boolean closeInvestmentAccount() {
+        boolean isClosed = false;
+        if (checkBalance() == 0.00) {
+            changeStatus("Closed");
+            isClosed = true;
+        }
+        return isClosed;
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         return "Investment";
     }
 }

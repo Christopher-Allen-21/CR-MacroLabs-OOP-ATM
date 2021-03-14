@@ -229,7 +229,7 @@ public class Console {
         Console.println("  User: %s                      ",userName);
         Console.println("  Account Type: %s              ",accountType);
         Console.println("|                              |");
-        Console.println("|        Invalid Entry.       |");
+        Console.println("|        Invalid Entry.        |");
         Console.println("|    Enter 00 to return to     |");
         Console.println("|        previous screen       |");
         Console.println("|                              |");

@@ -142,7 +142,7 @@ public class ATM {
             else if (depositAmount.equals("99")) {
                 System.exit(0);
             }
-            else if(isDouble(depositAmount)){
+            else if(isDouble(depositAmount)&&Double.parseDouble(depositAmount)>0){
                 acctBalance = accountType.depositMoney(Double.parseDouble(depositAmount));
                 depositDisplayScreen(currentUser,accountType,depositAmount,acctBalance);
             }
@@ -205,7 +205,7 @@ public class ATM {
             else if (withdrawAmount.equals("99")) {
                 System.exit(0);
             }
-            else if(isDouble(withdrawAmount)){
+            else if(isDouble(withdrawAmount) && Double.parseDouble(withdrawAmount)>0){
                 if(accountType.withdraw(Double.parseDouble(withdrawAmount))){
                     acctBalance = accountType.checkBalance();
                     withdrawDisplayScreen(currentUser,accountType,withdrawAmount,acctBalance);
@@ -266,7 +266,7 @@ public class ATM {
             else if (transferAmount.equals("99")) {
                 System.exit(0);
             }
-            else if(isDouble(transferAmount)){
+            else if(isDouble(transferAmount) && Double.parseDouble(transferAmount)>0){
                 if(accountType.checkBalance()>=Double.parseDouble(transferAmount)){
                     transferToChosenAccountScreen(currentUser,accountType,transferAmount);
                 }
@@ -290,7 +290,7 @@ public class ATM {
 
     }
 
-    public void transferInsufficientFundsScreen(User currentUser,BankAccounts accountType, String withdrawAmount, double acctBalance) {
+    public void transferInsufficientFundsScreen(User currentUser,BankAccounts accountType, String transferAmount, double acctBalance) {
         Console.displayWithdrawTransInsufficientFundsScreen(currentUser.getUserName(),accountType.toString(),"Transfer",acctBalance);
 
         while(true) {

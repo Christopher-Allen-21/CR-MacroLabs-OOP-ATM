@@ -15,7 +15,6 @@ public class User {
        this.savingsAcct = savings;
        this.investmentAcct = investment;
        this.password = password;
-
    }
 
     public String getUserName() {
@@ -30,6 +29,7 @@ public class User {
        return password;
     }
 
+//HEAD
     public BankAccounts getCheckingAcct() { return checkingAcct;}
 
     public void setCheckingAcct(BankAccounts checkingAcct) { this.checkingAcct = checkingAcct;}
@@ -41,6 +41,5 @@ public class User {
     public BankAccounts getInvestmentAcct() { return investmentAcct;}
 
     public void setInvestmentAcct(BankAccounts investmentAcct) { this.investmentAcct = investmentAcct;}
-
 
 }

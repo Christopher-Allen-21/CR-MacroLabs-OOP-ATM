@@ -1,4 +1,8 @@
+
+
 public class Checking extends BankAccounts{
+    Integer accountNumber;
+
 
     public boolean transferFromChecking(BankAccounts accTransferTo, double amountToTransfer) {
         boolean enoughFunds = false;
@@ -11,22 +15,49 @@ public class Checking extends BankAccounts{
         return enoughFunds;
     }
 
-    public static Integer createCheckingAccountNumber() {
-        Integer accountNumber = 111111 + (int) (Math.random() * ((333333 - 111111) + 1));
-        /*
-        if accountNumber is equal to that of one in archives, generate again
-        recursion here? Call itself until it gets a unique number?
-         */
+    public Integer createCheckingAccountNumber() {
+        accountNumber = 111111 + (int) (Math.random() * ((333333 - 111111) + 1));
+        return accountNumber;
+    }
+
+    public boolean accountNumAlreadyExist(Integer newAccountNum) {
+        for (Integer accountNum : accountNumbersInUse) {
+            if (accountNum != newAccountNum) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public void setAccountNumber() {
+        Integer accountNum = createCheckingAccountNumber();
+        if (!accountNumAlreadyExist(accountNum)) {
+            accountNumber = accountNum;
+            accountNumbersInUse.add(accountNum);
+        }
+    }
+
+    public Integer getAccountNumber() {
         return accountNumber;
     }
 
     public void openCheckingAccount() {
-        Checking.createCheckingAccountNumber();
+        setAccountNumber();
         balance = 0.00;
+        status = "Open";
+    }
+
+    public boolean closeCheckingAccount() {
+        boolean isClosed = false;
+        if (checkBalance() == 0.00) {
+            changeStatus("Closed");
+            isClosed = true;
+        }
+        return isClosed;
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         return "Checking";
     }
 }
