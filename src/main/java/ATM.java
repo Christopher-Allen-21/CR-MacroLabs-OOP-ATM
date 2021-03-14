@@ -82,7 +82,7 @@ public class ATM {
                 System.out.println("Option 2"); // currentUser.getAccount().withdraw(double amount)
             }
             else if(acctOptionSelection.equals("3")){
-                System.out.println("Option 3"); // currentUser.deposit(double amount)
+                depositPromptScreen(currentUser,accountType);
             }
             else if(acctOptionSelection.equals("4")){
                 System.out.println("Option 4"); // currentUser.transferInternal(double amount, AccountType acct, A)
@@ -136,8 +136,48 @@ public class ATM {
         }
     }
 
+    public void depositPromptScreen(User currentUser,String accountType) {
+        Console.displayDepositPromptScreen(currentUser.getUserName(),accountType);
 
+        while(true) {
+            String depositAmount = Console.getStringInput();
+            double acctBalance;
+            if (accountType.equals("Savings")) {
+                acctBalance = currentUser.savingsAcct.depositMoney(Double.parseDouble(depositAmount));
+                depositDisplayScreen(currentUser,accountType,depositAmount,acctBalance);
+            }
+            else if (accountType.equals("Checking")) {
+                acctBalance = currentUser.checkingAcct.depositMoney(Double.parseDouble(depositAmount));
+                depositDisplayScreen(currentUser,accountType,depositAmount,acctBalance);
+            }
+            else if (accountType.equals("Investment")){
+                acctBalance = currentUser.investmentAcct.depositMoney(Double.parseDouble(depositAmount));
+                depositDisplayScreen(currentUser,accountType,depositAmount,acctBalance);
+            }
+            else if (depositAmount.equals("00")) {
+                accountOptionsScreen(currentUser,accountType);
+            }
+            else if (depositAmount.equals("99")) {
+                System.exit(0);
+            }
 
+        }
+    }
+
+    public void depositDisplayScreen(User currentUser,String accountType, String depositAmount, double acctBalance) {
+        Console.displayDepositBalanceScreen(currentUser.getUserName(),accountType,depositAmount,acctBalance);
+
+        while(true) {
+            String command = Console.getStringInput();
+            if (command.equals("00")) {
+                accountOptionsScreen(currentUser,accountType);
+            }
+            else if (command.equals("99")) {
+                System.exit(0);
+            }
+
+        }
+    }
 
 
 }

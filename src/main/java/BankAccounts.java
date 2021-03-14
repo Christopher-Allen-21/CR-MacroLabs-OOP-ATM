@@ -11,8 +11,9 @@ public abstract class BankAccounts {
         return balance;
     }
 
-    public void depositMoney(double deposit) {
+    public double depositMoney(double deposit) {
         balance += deposit;
+        return checkBalance();
     }
 
 
@@ -33,12 +34,15 @@ public abstract class BankAccounts {
     }*/
 
     //compare withdrawal methods
-    public void withdraw(double amountToWithdraw) {
+    public boolean withdraw(double amountToWithdraw) {
+        boolean enoughFunds = false;
         double currentBalance = checkBalance();
         if (currentBalance >= amountToWithdraw) {
             currentBalance -= amountToWithdraw;
             this.balance = currentBalance;
+            enoughFunds = true;
         }
+        return enoughFunds;
     }
 
 

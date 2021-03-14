@@ -178,7 +178,41 @@ public class Console {
         Console.println("  User: %s                      ",userName);
         Console.println("  Account Type: %s              ",accountType);
         Console.println("|                              |");
-        Console.println("  Account Balance: %s            ",accountBalance);
+        Console.println("  Account Balance: $%s          ",accountBalance);
+        Console.println("|                              |");
+        Console.println("--------------------------------");
+        Console.println("| Enter 00 for Previous Screen |");
+        Console.println("|       Enter 99 to Quit       |");
+        Console.println("--------------------------------");
+    }
+
+    public static void displayDepositPromptScreen(String userName,String accountType){
+        Console.println("--------------------------------");
+        Console.println("|    ZipCodeWilmington ATM     |");
+        Console.println("--------------------------------");
+        Console.println("|                              |");
+        Console.println("  User: %s                      ",userName);
+        Console.println("  Account Type: %s              ",accountType);
+        Console.println("|                              |");
+        Console.println("  Enter amount to deposit:     |");
+        Console.println("|                              |");
+        Console.println("|                              |");
+        Console.println("--------------------------------");
+        Console.println("| Enter 00 for Previous Screen |");
+        Console.println("|       Enter 99 to Quit       |");
+        Console.println("--------------------------------");
+    }
+
+    public static void displayDepositBalanceScreen(String userName,String accountType,String depositAmount,double acctBalance){
+        Console.println("--------------------------------");
+        Console.println("|    ZipCodeWilmington ATM     |");
+        Console.println("--------------------------------");
+        Console.println("|                              |");
+        Console.println("  User: %s                      ",userName);
+        Console.println("  Account Type: %s              ",accountType);
+        Console.println("|                              |");
+        Console.println("  Amount Deposited: $%s         ",depositAmount);
+        Console.println("  Account Balance: $%s          ",acctBalance);
         Console.println("|                              |");
         Console.println("--------------------------------");
         Console.println("| Enter 00 for Previous Screen |");
