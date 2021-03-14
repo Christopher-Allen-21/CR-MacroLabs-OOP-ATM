@@ -94,7 +94,7 @@ public class ATM {
                 System.out.println("Option 6"); // currentUser.createNewAccount(AccountType acct)
             }
             else if(acctOptionSelection.equals("7")){
-                System.out.println("Option 7"); // currentUser.closeAccount(AccountType acct)
+                deleteAccount(currentUser, accountType);
             }
             else if(acctOptionSelection.equals("8")){
                 printTransactionList(currentUser, accountType);
@@ -485,7 +485,7 @@ public class ATM {
                 System.exit(0);
             } else if (command.equals(currentUser.getPassword())) {
                 archive.deleteAccount(currentUser);
-                accountDeletedScr(currentUser.toString());
+                accountDeletedScr(currentUser);
             }
         }
     }
