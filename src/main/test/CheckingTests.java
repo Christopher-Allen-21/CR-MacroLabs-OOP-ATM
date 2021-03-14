@@ -101,4 +101,15 @@ public class CheckingTests {
 
         assertTrue(checking.closeCheckingAccount());
     }
+
+    @Test
+    public void openChecking() {
+        Checking checking = new Checking();
+        checking.openCheckingAccount();
+
+        System.out.println(checking.accountNumber);
+        System.out.println(checking.balance);
+        System.out.println(checking.status);
+    }
+
 }

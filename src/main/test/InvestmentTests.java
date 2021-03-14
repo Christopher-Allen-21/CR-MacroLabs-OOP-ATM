@@ -97,4 +97,14 @@ public class InvestmentTests {
 
         assertFalse(investment.closeInvestmentAccount());
     }
+
+    @Test
+    public void openInvestment() {
+        Investment investment = new Investment();
+        investment.openInvestmentAccount();
+
+        System.out.println(investment.accountNumber);
+        System.out.println(investment.balance);
+        System.out.println(investment.status);
+    }
 }

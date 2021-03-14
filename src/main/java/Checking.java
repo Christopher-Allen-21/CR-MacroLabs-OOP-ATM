@@ -37,9 +37,14 @@ public class Checking extends BankAccounts{
         }
     }
 
+    public Integer getAccountNumber() {
+        return accountNumber;
+    }
+
     public void openCheckingAccount() {
         setAccountNumber();
         balance = 0.00;
+        status = "Open";
     }
 
     public boolean closeCheckingAccount() {

@@ -97,4 +97,14 @@ public class SavingsTest {
 
         assertTrue(savings.closeSavingsAccount());
     }
+
+    @Test
+    public void openSavings() {
+        Savings savings = new Savings();
+        savings.openSavingsAccount();
+
+        System.out.println(savings.accountNumber);
+        System.out.println(savings.balance);
+        System.out.println(savings.status);
+    }
 }

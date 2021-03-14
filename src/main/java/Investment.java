@@ -40,6 +40,7 @@ public class Investment extends BankAccounts{
     public void openInvestmentAccount() {
         setAccountNumber();
         balance = 0.00;
+        status = "Open";
     }
 
     public boolean closeInvestmentAccount() {
