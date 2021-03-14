@@ -9,22 +9,22 @@ public class User {
    private byte password[];
    public BankAccounts checking = new Checking();
    public BankAccounts savings = new Savings();
-   public BankAccounts investment = new Investments();
+   public BankAccounts investment = new Investment();
 
 
-   public User(String firstName, String lastName,  String password, BankAccount checking, BankAccount savings, BankAccount investment) {
+   public User(String firstName, String lastName,  String password, BankAccounts checking, BankAccounts savings, BankAccounts investment) {
        this.firstName = firstName;
        this.lastName = lastName;
        this.checking = checking;
        this.savings = savings;
-       this.investment = investment
+       this.investment = investment;
 
 
 
 
        try {
            MessageDigest md = MessageDigest.getInstance("MD5");
-           this.password= md.digest(pin.getBytes());
+           this.password= md.digest(password.getBytes());
        } catch (NoSuchAlgorithmException e) {
            System.err.println("error, caught");
            e.printStackTrace();
@@ -49,9 +49,9 @@ public class User {
         this.lastName = lastName;
     }
 
-    public String[] getAccountNumber() {
+    /*public String[] getAccountNumber() {
         return accountNumber;
-    }
+    }*/
 
 
 
