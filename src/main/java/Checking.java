@@ -51,6 +51,7 @@ public class Checking extends BankAccounts{
         boolean isClosed = false;
         if (checkBalance() == 0.00) {
             changeStatus("Closed");
+            accountNumbersInUse.remove(getAccountNumber());
             isClosed = true;
         }
         return isClosed;
