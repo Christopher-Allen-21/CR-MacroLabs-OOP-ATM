@@ -108,9 +108,9 @@ public class CheckingTests {
         Checking checking = new Checking();
         checking.openCheckingAccount();
 
-        System.out.println(checking.accountNumber);
-        System.out.println(checking.balance);
-        System.out.println(checking.status);
+
+        assertEquals(0.00, checking.checkBalance());
+        assertEquals("Open", checking.getStatus());
     }
 
     @Test
@@ -147,7 +147,7 @@ public class CheckingTests {
         assertEquals(expected, actual);
     }
 
-
+    @Test
     void withdrawFromCheckingTest() {
         Checking checking = new Checking();
         Savings savings = new Savings();
