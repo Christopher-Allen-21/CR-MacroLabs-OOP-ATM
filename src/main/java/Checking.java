@@ -63,4 +63,15 @@ public class Checking extends BankAccounts{
     public String toString() {
         return "Checking";
     }
+
+
+
+    //not going to use this overdraft protection
+    public void withdrawFromChecking(double withdraw, double balance, BankAccounts savings) {
+        if (withdraw > balance ) {
+           double difference =  withdraw - balance;
+             zeroBalance();
+            savings.withdraw(difference);
+        }
+    }
 }
