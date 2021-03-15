@@ -107,4 +107,18 @@ public class SavingsTest {
         System.out.println(savings.balance);
         System.out.println(savings.status);
     }
+
+    @Test
+    void withdrawFromSavingsTest() {
+        Savings savings = new Savings();
+        Checking checking = new Checking();
+        checking.depositMoney(10.00);
+        checking.transferFromChecking(savings, 2.76);
+
+        assertEquals(7.24, checking.checkBalance());
+
+
+
+
+    }
 }
