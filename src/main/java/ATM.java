@@ -5,6 +5,24 @@ public class ATM {
     public void run(){
 
         Console.displayUserNamePrompt();
+
+        while(true){
+            String userName = Console.getStringInput();
+            if(userName.equals("1")){
+                LoginScreen();
+            }
+            else if(userName.equals("2")){
+                createNewUserScreen();
+            }
+            else if(userName.equals("99")){
+                System.exit(0);
+            }
+        }
+    }
+
+    public void LoginScreen(){
+
+        Console.displayLoginScreen();
         User currentUser;
 
         while(true){
@@ -18,6 +36,55 @@ public class ATM {
             }
             else{
                 Console.displayInvalidUserNamePrompt();
+            }
+        }
+    }
+
+    public void createNewUserScreen(){
+        Console.displayNewUserName();
+
+        while(true){
+            String userName = Console.getStringInput();
+
+            if(userName.equals("1")){
+                userNameCantBe1Screen();
+            }
+            else if(userName.equals("99")){
+                System.exit(0);
+            }
+            else{
+                User currentUser = archive.openAccount(userName);
+                newUserCreatedScreen(currentUser);
+            }
+        }
+    }
+
+    public void userNameCantBe1Screen(){
+
+        while(true){
+            Console.displayUserNameCantBe1();
+            String userName = Console.getStringInput();
+
+            if(userName.equals("1")){
+                userNameCantBe1Screen();
+            }
+            if(userName.equals("99")){
+                System.exit(0);
+            }
+            else{
+                User currentUser = archive.openAccount(userName);
+                newUserCreatedScreen(currentUser);
+            }
+        }
+    }
+
+    public void newUserCreatedScreen(User currentUser){
+
+        while(true){
+            Console.displayNewUserCreatedScreen(currentUser.getUserName());
+            String anykey = Console.getStringInput();
+            if(anykey.equals("00")){
+                selectAccountScreen(currentUser);
             }
         }
     }

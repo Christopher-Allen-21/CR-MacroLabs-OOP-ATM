@@ -21,10 +21,70 @@ public class Console {
         Console.println("|    ZipCodeWilmington ATM     |");
         Console.println("--------------------------------");
         Console.println("|                              |");
+        Console.println("|    Please enter a number:    |");
+        Console.println("|     1. Login                 |");
+        Console.println("|     2. Create new account    |");
+        Console.println("|                              |");
+        Console.println("|                              |");
+        Console.println("--------------------------------");
+        Console.println("|       Enter 99 to Quit       |");
+        Console.println("--------------------------------");
+    }
+
+    public static void displayLoginScreen(){
+        Console.println("--------------------------------");
+        Console.println("|    ZipCodeWilmington ATM     |");
+        Console.println("--------------------------------");
+        Console.println("|                              |");
         Console.println("| Please enter your user name: |");
         Console.println("|                              |");
         Console.println("|                              |");
         Console.println("|                              |");
+        Console.println("|                              |");
+        Console.println("--------------------------------");
+        Console.println("|       Enter 99 to Quit       |");
+        Console.println("--------------------------------");
+    }
+
+    public static void displayNewUserName(){
+        Console.println("--------------------------------");
+        Console.println("|    ZipCodeWilmington ATM     |");
+        Console.println("--------------------------------");
+        Console.println("|                              |");
+        Console.println("|   Please enter a Username:   |");
+        Console.println("|                              |");
+        Console.println("|                              |");
+        Console.println("|                              |");
+        Console.println("|                              |");
+        Console.println("--------------------------------");
+        Console.println("|       Enter 99 to Quit       |");
+        Console.println("--------------------------------");
+    }
+
+    public static void displayUserNameCantBe1(){
+        Console.println("--------------------------------");
+        Console.println("|    ZipCodeWilmington ATM     |");
+        Console.println("--------------------------------");
+        Console.println("|                              |");
+        Console.println("|     Username can't be 1      |");
+        Console.println("|   Please enter a Username:   |");
+        Console.println("|                              |");
+        Console.println("|                              |");
+        Console.println("|                              |");
+        Console.println("--------------------------------");
+        Console.println("|       Enter 99 to Quit       |");
+        Console.println("--------------------------------");
+    }
+
+    public static void displayNewUserCreatedScreen(String userName){
+        Console.println("--------------------------------");
+        Console.println("|    ZipCodeWilmington ATM     |");
+        Console.println("--------------------------------");
+        Console.println("|                              |");
+        Console.println("| Successfully created         |");
+        Console.println("  account for %s                ",userName);
+        Console.println("|                              |");
+        Console.println("|     Enter 00 to continue     |");
         Console.println("|                              |");
         Console.println("--------------------------------");
         Console.println("|       Enter 99 to Quit       |");
