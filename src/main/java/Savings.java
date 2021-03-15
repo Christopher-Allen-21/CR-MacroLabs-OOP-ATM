@@ -2,6 +2,7 @@
 
 public class Savings extends BankAccounts{
     Integer accountNumber;
+    double annualInterestRate;
 
     public boolean transferFromSavings(BankAccounts accTransferTo, double amountToTransfer) {
         boolean enoughFunds = false;
@@ -45,6 +46,11 @@ public class Savings extends BankAccounts{
         setAccountNumber();
         balance = 0.00;
         status = "Open";
+    }
+
+    public double annualMonthlyInterest(double balance){
+        balance += (( annualInterestRate/ 12) *balance);
+        return balance;
     }
 
 //    public boolean closeSavingsAccount() {
