@@ -84,7 +84,23 @@ public class Console {
         Console.println("| Successfully created         |");
         Console.println("  account for %s                ",userName);
         Console.println("|                              |");
+        Console.println("| Please enter a password:     |");
+        Console.println("|                              |");
+        Console.println("|                              |");
+        Console.println("--------------------------------");
+        Console.println("|       Enter 99 to Quit       |");
+        Console.println("--------------------------------");
+    }
+
+    public static void displayNewPasswordCreatedScreen(String userName){
+        Console.println("--------------------------------");
+        Console.println("|    ZipCodeWilmington ATM     |");
+        Console.println("--------------------------------");
+        Console.println("|                              |");
+        Console.println("  Password set for %s           ",userName);
+        Console.println("|                              |");
         Console.println("|     Enter 00 to continue     |");
+        Console.println("|                              |");
         Console.println("|                              |");
         Console.println("--------------------------------");
         Console.println("|       Enter 99 to Quit       |");

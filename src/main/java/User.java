@@ -45,4 +45,6 @@ public class User {
 
     public void setInvestmentAcct(BankAccounts investmentAcct) { this.investmentAcct = investmentAcct;}
 
+    public void setPassword(String password) { this.password = password;}
+
 }

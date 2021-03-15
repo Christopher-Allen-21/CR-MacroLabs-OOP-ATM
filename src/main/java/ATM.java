@@ -82,6 +82,21 @@ public class ATM {
 
         while(true){
             Console.displayNewUserCreatedScreen(currentUser.getUserName());
+            String password = Console.getStringInput();
+            if(password.equals("99")){
+                System.exit(0);
+            }
+            else {
+                currentUser.setPassword(password);
+                newPasswordCreatedScreen(currentUser);
+            }
+        }
+    }
+
+    public void newPasswordCreatedScreen(User currentUser){
+
+        while(true){
+            Console.displayNewPasswordCreatedScreen(currentUser.getUserName());
             String anykey = Console.getStringInput();
             if(anykey.equals("00")){
                 selectAccountScreen(currentUser);
