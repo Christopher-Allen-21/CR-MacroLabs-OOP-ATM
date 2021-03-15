@@ -1,7 +1,7 @@
 
 
 public class Checking extends BankAccounts{
-    Integer accountNumber;
+    Integer accountNumber = 000000;
 
 
     public boolean transferFromChecking(BankAccounts accTransferTo, double amountToTransfer) {

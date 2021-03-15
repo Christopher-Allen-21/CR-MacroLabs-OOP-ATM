@@ -1,7 +1,7 @@
 
 
 public class Savings extends BankAccounts{
-    Integer accountNumber;
+    Integer accountNumber = 000000;
 
     public boolean transferFromSavings(BankAccounts accTransferTo, double amountToTransfer) {
         boolean enoughFunds = false;

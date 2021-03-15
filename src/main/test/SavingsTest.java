@@ -107,4 +107,36 @@ public class SavingsTest {
         System.out.println(savings.balance);
         System.out.println(savings.status);
     }
+
+    @Test
+    public void getAccountNum() {
+        Savings savings = new Savings();
+        Integer expected = 000000;
+
+        Integer actual = savings.getAccountNumber();
+
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void transactionHistory() {
+        Savings savings = new Savings();
+        savings.depositMoney(15.64);
+
+        String expected = "[Deposited $15.64]";
+        String actual = savings.getTransactionHistory();
+
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void checkBalance() {
+        Savings savings = new Savings();
+        savings.depositMoney(85.36);
+
+        double expected = 85.36;
+        double actual = savings.checkBalance();
+
+        assertEquals(expected, actual);
+    }
 }

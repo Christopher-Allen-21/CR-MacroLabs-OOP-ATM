@@ -107,4 +107,37 @@ public class InvestmentTests {
         System.out.println(investment.balance);
         System.out.println(investment.status);
     }
+
+    @Test
+    public void getAccountNum() {
+        Investment investment = new Investment();
+        Integer expected = 000000;
+
+        Integer actual = investment.getAccountNumber();
+
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void checkBalance() {
+        Investment investment = new Investment();
+        investment.depositMoney(15.64);
+
+        double expected = 15.64;
+        double actual = investment.checkBalance();
+
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void transactionHistory() {
+        Investment investment = new Investment();
+        investment.depositMoney(2.56);
+        investment.withdraw(1.15);
+
+        String expected = "[Deposited $2.56, Withdrew $1.15]";
+        String actual = investment.getTransactionHistory();
+
+        assertEquals(expected, actual);
+    }
 }

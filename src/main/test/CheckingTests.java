@@ -1,6 +1,7 @@
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class CheckingTests {
 
@@ -110,6 +111,40 @@ public class CheckingTests {
         System.out.println(checking.accountNumber);
         System.out.println(checking.balance);
         System.out.println(checking.status);
+    }
+
+    @Test
+    public void getAccountNumber() {
+        Checking checking = new Checking();
+        Integer expected = 000000;
+
+        Integer actual = checking.getAccountNumber();
+
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void transactionHistory() {
+        Checking checking = new Checking();
+        checking.depositMoney(20.00);
+
+        String expected = "[Deposited $20.0]";
+
+        String actual = checking.getTransactionHistory();
+
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void checkBalance() {
+        Checking checking = new Checking();
+        checking.depositMoney(20.00);
+
+        double expected = 20.0;
+
+        double actual = checking.checkBalance();
+
+        assertEquals(expected, actual);
     }
 
 }
