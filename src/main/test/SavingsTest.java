@@ -103,9 +103,9 @@ public class SavingsTest {
         Savings savings = new Savings();
         savings.openSavingsAccount();
 
-        System.out.println(savings.accountNumber);
-        System.out.println(savings.balance);
-        System.out.println(savings.status);
+
+        assertEquals(0.00, savings.checkBalance());
+        assertEquals("Open", savings.getStatus());
     }
 
     @Test

@@ -103,9 +103,9 @@ public class InvestmentTests {
         Investment investment = new Investment();
         investment.openInvestmentAccount();
 
-        System.out.println(investment.accountNumber);
-        System.out.println(investment.balance);
-        System.out.println(investment.status);
+
+        assertEquals(0.00, investment.checkBalance());
+        assertEquals("Open", investment.getStatus());
     }
 
     @Test
