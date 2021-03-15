@@ -61,4 +61,17 @@ public class Savings extends BankAccounts{
     public String toString() {
         return "Savings";
     }
+
+//    public void withdrawFromSavings(double withdraw, double balance, BankAccounts investment) {
+//        if (withdraw > balance ) {
+//            double difference =  withdraw - balance;
+//            zeroBalance();
+//            investment.withdraw(difference);
+//        }
+//    }
+
+
+
+
+
 }

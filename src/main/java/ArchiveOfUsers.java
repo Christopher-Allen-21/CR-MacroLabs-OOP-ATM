@@ -44,7 +44,12 @@ public class ArchiveOfUsers {
         userList.remove(currentUser);
     }
 
-    public void openAccount(User currentUser) {
-        userList.add(currentUser);
+    public User openAccount(String name) {
+        BankAccounts newChecking = new Checking();
+        BankAccounts newSavings = new Savings();
+        BankAccounts newInvestment = new Investment();
+        User newUser = new User(name,"password123",newChecking,newSavings,newInvestment);
+        userList.add(newUser);
+        return newUser;
     }
 }

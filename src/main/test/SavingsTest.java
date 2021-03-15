@@ -139,4 +139,14 @@ public class SavingsTest {
 
         assertEquals(expected, actual);
     }
+
+    @Test
+    public void withdrawFromSavingsTest() {
+        Savings savings = new Savings();
+        Checking checking = new Checking();
+        checking.depositMoney(10.00);
+        checking.transferFromChecking(savings, 2.76);
+
+        assertEquals(7.24, checking.checkBalance());
+    }
 }
