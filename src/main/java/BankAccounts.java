@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 public abstract class BankAccounts {
-    double balance;
+    double balance=0;
     String status;
     ArrayList<Integer> accountNumbersInUse = new ArrayList<Integer>();
     ArrayList<String> transactionList = new ArrayList<String>();

@@ -1,16 +1,26 @@
 import java.util.ArrayList;
 
 public class ArchiveOfUsers {
-    BankAccounts myChecking = new Checking();
-    BankAccounts mySavings = new Savings();
-    BankAccounts myInvestment = new Investment();
+    BankAccounts myChecking1 = new Checking();
+    BankAccounts mySavings1 = new Savings();
+    BankAccounts myInvestment1 = new Investment();
+    BankAccounts myChecking2 = new Checking();
+    BankAccounts mySavings2 = new Savings();
+    BankAccounts myInvestment2 = new Investment();
+    BankAccounts myChecking3 = new Checking();
+    BankAccounts mySavings3 = new Savings();
+    BankAccounts myInvestment3 = new Investment();
+    BankAccounts myChecking4 = new Checking();
+    BankAccounts mySavings4 = new Savings();
+    BankAccounts myInvestment4 = new Investment();
+
     ArrayList<User> userList = new ArrayList<User>();
 
     public ArchiveOfUsers(){
-        User user1 = new User("Chris Allen","password123",myChecking,mySavings,myInvestment);
-        User user2 = new User("Justin Banks","password123",myChecking,mySavings,myInvestment);
-        User user3 = new User("Greg Donnelly","password123",myChecking,mySavings,myInvestment);
-        User user4 = new User("Ashley Smart","password123",myChecking,mySavings,myInvestment);
+        User user1 = new User("Chris Allen","password123",myChecking1,mySavings1,myInvestment1);
+        User user2 = new User("Justin Banks","password123",myChecking2,mySavings2,myInvestment2);
+        User user3 = new User("Greg Donnelly","password123",myChecking3,mySavings3,myInvestment3);
+        User user4 = new User("Ashley Smart","password123",myChecking4,mySavings4,myInvestment4);
 
         userList.add(user1);
         userList.add(user2);
