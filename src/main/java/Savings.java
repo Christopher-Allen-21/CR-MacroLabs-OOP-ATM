@@ -1,7 +1,7 @@
 
 
 public class Savings extends BankAccounts{
-    Integer accountNumber;
+    Integer accountNumber = 000000;
 
     public boolean transferFromSavings(BankAccounts accTransferTo, double amountToTransfer) {
         boolean enoughFunds = false;
@@ -62,13 +62,13 @@ public class Savings extends BankAccounts{
         return "Savings";
     }
 
-    public void withdrawFromSavings(double withdraw, double balance, BankAccounts investment) {
-        if (withdraw > balance ) {
-            double difference =  withdraw - balance;
-            zeroBalance();
-            investment.withdraw(difference);
-        }
-    }
+//    public void withdrawFromSavings(double withdraw, double balance, BankAccounts investment) {
+//        if (withdraw > balance ) {
+//            double difference =  withdraw - balance;
+//            zeroBalance();
+//            investment.withdraw(difference);
+//        }
+//    }
 
 
 

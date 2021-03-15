@@ -1,7 +1,7 @@
 
 
 public class Checking extends BankAccounts{
-    Integer accountNumber;
+    Integer accountNumber = 000000;
 
 
     public boolean transferFromChecking(BankAccounts accTransferTo, double amountToTransfer) {
@@ -67,11 +67,11 @@ public class Checking extends BankAccounts{
 
 
     //not going to use this overdraft protection
-    public void withdrawFromChecking(double withdraw, double balance, BankAccounts savings) {
-        if (withdraw > balance ) {
-           double difference =  withdraw - balance;
-             zeroBalance();
-            savings.withdraw(difference);
-        }
-    }
+//    public void withdrawFromChecking(double withdraw, double balance, BankAccounts savings) {
+//        if (withdraw > balance ) {
+//           double difference =  withdraw - balance;
+//             zeroBalance();
+//            savings.withdraw(difference);
+//        }
+//    }
 }

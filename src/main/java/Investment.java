@@ -1,7 +1,7 @@
 
 
 public class Investment extends BankAccounts{
-    Integer accountNumber;
+    Integer accountNumber = 000000;
 
     public boolean transferFromInvestments(BankAccounts accTransferTo, double amountToTransfer) {
         boolean enoughFunds = false;
