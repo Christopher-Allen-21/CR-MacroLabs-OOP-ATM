@@ -160,12 +160,6 @@ public class ATM {
                 transferExternalAmountPromptScreen(currentUser,accountType);
             }
             else if(acctOptionSelection.equals("6")){
-                System.out.println("Option 6"); // currentUser.createNewAccount(AccountType acct)
-            }
-//            else if(acctOptionSelection.equals("7")){
-//                deleteAccount(currentUser, accountType);
-//            }
-            else if(acctOptionSelection.equals("7")){
                 printTransactionList(currentUser, accountType);
             }
             else if(acctOptionSelection.equals("00")){

@@ -197,8 +197,7 @@ public class Console {
         Console.println("|    3. Deposit                |");
         Console.println("|    4. Transfer (Internal)    |");
         Console.println("|    5. Transfer (External)    |");
-        Console.println("|    6. Open New Account       |");
-        Console.println("|    7. Print Trans. History   |");
+        Console.println("|    6. Print Trans. History   |");
         Console.println("|                              |");
         Console.println("--------------------------------");
         Console.println("| Enter 00 for Previous Screen |");
@@ -221,8 +220,7 @@ public class Console {
         Console.println("|    3. Deposit                |");
         Console.println("|    4. Transfer (Internal)    |");
         Console.println("|    5. Transfer (External)    |");
-        Console.println("|    6. Open New Account       |");
-        Console.println("|    7. Print Trans. History   |");
+        Console.println("|    6. Print Trans. History   |");
         Console.println("|                              |");
         Console.println("--------------------------------");
         Console.println("| Enter 00 for Previous Screen |");
