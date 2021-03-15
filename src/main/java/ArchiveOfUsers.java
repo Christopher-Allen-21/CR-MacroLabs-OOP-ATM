@@ -39,4 +39,12 @@ public class ArchiveOfUsers {
     public User getArchivedUser(int index){
         return userList.get(index);
     }
+
+    public void deleteAccount(User currentUser) {
+        userList.remove(currentUser);
+    }
+
+    public void openAccount(User currentUser) {
+        userList.add(currentUser);
+    }
 }

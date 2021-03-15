@@ -81,22 +81,22 @@ public class SavingsTest {
         assertTrue(accountNum >= 333334 && accountNum <= 666666);
     }
 
-    @Test
-    public void closeSavingsTrue() {
-        Savings savings = new Savings();
-        savings.depositMoney(65.81);
-
-        assertFalse(savings.closeSavingsAccount());
-    }
-
-    @Test
-    public void closeSavingsFalse() {
-        Savings savings = new Savings();
-        savings.depositMoney(21.36);
-        savings.zeroBalance();
-
-        assertTrue(savings.closeSavingsAccount());
-    }
+//    @Test
+//    public void closeSavingsTrue() {
+//        Savings savings = new Savings();
+//        savings.depositMoney(65.81);
+//
+//        assertFalse(savings.closeSavingsAccount());
+//    }
+//
+//    @Test
+//    public void closeSavingsFalse() {
+//        Savings savings = new Savings();
+//        savings.depositMoney(21.36);
+//        savings.zeroBalance();
+//
+//        assertTrue(savings.closeSavingsAccount());
+//    }
 
     @Test
     public void openSavings() {

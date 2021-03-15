@@ -95,7 +95,8 @@ public class Console {
         Console.println("|    1. Savings Account        |");
         Console.println("|    2. Checking Account       |");
         Console.println("|    3. Investment Account     |");
-        Console.println("|                              |");
+        Console.println("|    4. Close Accounts         |");
+        Console.println( "|                              |");
         Console.println("--------------------------------");
         Console.println("| Enter 00 to Return to Login  |");
         Console.println("|       Enter 99 to Quit       |");
@@ -114,6 +115,7 @@ public class Console {
         Console.println("|    1. Savings Account        |");
         Console.println("|    2. Checking Account       |");
         Console.println("|    3. Investment Account     |");
+        Console.println("|    4. Close Accounts         |");
         Console.println("|                              |");
         Console.println("--------------------------------");
         Console.println("| Enter 00 to Return to Login  |");
@@ -136,8 +138,7 @@ public class Console {
         Console.println("|    4. Transfer (Internal)    |");
         Console.println("|    5. Transfer (External)    |");
         Console.println("|    6. Open New Account       |");
-        Console.println("|    7. Close Account          |");
-        Console.println("|    8. Print Trans. History   |");
+        Console.println("|    7. Print Trans. History   |");
         Console.println("|                              |");
         Console.println("--------------------------------");
         Console.println("| Enter 00 for Previous Screen |");
@@ -161,8 +162,7 @@ public class Console {
         Console.println("|    4. Transfer (Internal)    |");
         Console.println("|    5. Transfer (External)    |");
         Console.println("|    6. Open New Account       |");
-        Console.println("|    7. Close Account          |");
-        Console.println("|    8. Print Trans. History   |");
+        Console.println("|    7. Print Trans. History   |");
         Console.println("|                              |");
         Console.println("--------------------------------");
         Console.println("| Enter 00 for Previous Screen |");
@@ -239,6 +239,26 @@ public class Console {
         Console.println("--------------------------------");
     }
 
+    public static void diplayExternalTransferBalanceScreen(String userName,String accountType,double transferAmount,String command,String transferFrom, String transferFromBalance, String transferTo,String transferToBalance, String userTransferTo){
+        Console.println("--------------------------------");
+        Console.println("|    ZipCodeWilmington ATM     |");
+        Console.println("--------------------------------");
+        Console.println("|                              |");
+        Console.println("  User: %s                      ",userName);
+        Console.println("  Account Type: %s              ",accountType);
+        Console.println("|                              |");
+        Console.println("  Amount %s: $%s         ",command,transferAmount);
+        Console.println("  %s Acct Balance: $%s          ",transferFrom,transferFromBalance);
+        Console.println("|                              |");
+        Console.println("  User: %s                      ",userTransferTo);
+        Console.println("  %s Acct Balance: $%s          ",transferTo,transferToBalance);
+        Console.println("|                              |");
+        Console.println("--------------------------------");
+        Console.println("| Enter 00 for Another Trans.  |");
+        Console.println("|       Enter 99 to Quit       |");
+        Console.println("--------------------------------");
+    }
+
     public static void displayInvalidNumberEnteredScreen(String userName,String accountType){
         Console.println("--------------------------------");
         Console.println("|    ZipCodeWilmington ATM     |");
@@ -291,4 +311,77 @@ public class Console {
         Console.println("--------------------------------");
     }
 
+    public static void displayTransferExternalUnknownUserScreen(String userName,String accountType){
+        Console.println("--------------------------------");
+        Console.println("|    ZipCodeWilmington ATM     |");
+        Console.println("--------------------------------");
+        Console.println("|                              |");
+        Console.println("  User: %s                      ",userName);
+        Console.println("  Account Type: %s              ",accountType);
+        Console.println("|                              |");
+        Console.println("|     Unknown user Entered     |");
+        Console.println("| Enter 00 for Previous Screen |");
+        Console.println("|                              |");
+        Console.println("--------------------------------");
+        Console.println("| Enter 00 for Previous Screen |");
+        Console.println("|       Enter 99 to Quit       |");
+        Console.println("--------------------------------");
+    }
+
+    public static void displayTransactionListScreen(String userName, String transactionList){
+        Console.println("--------------------------------");
+        Console.println("|    ZipCodeWilmington ATM     |");
+        Console.println("--------------------------------");
+        Console.println("|                              |");
+        Console.println("  User: %s                    ",userName);
+        Console.println("|                              |");
+        Console.println("%s                              ", transactionList);
+        Console.println("|                              |");
+        Console.println("|                              |");
+        Console.println("|                              |");
+        Console.println("|                              |");
+        Console.println("--------------------------------");
+        Console.println("| Enter 00 to Return to Login  |");
+        Console.println("|       Enter 99 to Quit       |");
+        Console.println("--------------------------------");
+    }
+
+    public static void displayAreYouSureScreen(String userName) {
+        Console.println("--------------------------------");
+        Console.println("|    ZipCodeWilmington ATM     |");
+        Console.println("--------------------------------");
+        Console.println("|                              |");
+        Console.println("  User: %s                    ",userName);
+        Console.println("|                              |");
+        Console.println("|  Are you sure you want to    |");
+        Console.println("|    close your accounts?      |");
+        Console.println("|                              |");
+        Console.println("|  Enter password to confirm:  |");
+        Console.println("|                              |");
+        Console.println("--------------------------------");
+        Console.println("| Enter 00 to Return to Login  |");
+        Console.println("|       Enter 99 to Quit       |");
+        Console.println("--------------------------------");
+    }
+
+    public static void accountDeletedScreen(String userName, double checkingBalance, double savingsBalance, double investmentBalance) {
+        Console.println("--------------------------------");
+        Console.println("|    ZipCodeWilmington ATM     |");
+        Console.println("--------------------------------");
+        Console.println("|                              |");
+        Console.println("Account closed: %s              ",userName);
+        Console.println("Withdrawn from Checking: %s     ",checkingBalance);
+        Console.println("Withdrawn from Savings: %s      ",savingsBalance);
+        Console.println("Withdrawn from Investment: %s   ",investmentBalance);
+        Console.println("|                              |");
+        Console.println("|                              |");
+        Console.println("|          Goodbye!            |");
+        Console.println("|                              |");
+        Console.println("|                              |");
+        Console.println("|                              |");
+        Console.println("--------------------------------");
+        Console.println("| Enter 00 to Return to Login  |");
+        Console.println("|       Enter 99 to Quit       |");
+        Console.println("--------------------------------");
+    }
 }

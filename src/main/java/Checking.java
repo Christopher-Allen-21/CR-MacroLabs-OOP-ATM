@@ -49,15 +49,15 @@ public class Checking extends BankAccounts{
         transactionList.add("Created new checking account");
     }
 
-    public boolean closeCheckingAccount() {
-        boolean isClosed = false;
-        if (checkBalance() == 0.00) {
-            changeStatus("Closed");
-            accountNumbersInUse.remove(getAccountNumber());
-            isClosed = true;
-        }
-        return isClosed;
-    }
+//    public boolean closeCheckingAccount() {
+//        boolean isClosed = false;
+//        if (checkBalance() == 0.00) {
+//            changeStatus("Closed");
+//            accountNumbersInUse.remove(getAccountNumber());
+//            isClosed = true;
+//        }
+//        return isClosed;
+//    }
 
     @Override
     public String toString() {

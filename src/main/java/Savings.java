@@ -47,15 +47,15 @@ public class Savings extends BankAccounts{
         status = "Open";
     }
 
-    public boolean closeSavingsAccount() {
-        boolean isClosed = false;
-        if (checkBalance() == 0.00) {
-            changeStatus("Closed");
-            accountNumbersInUse.remove(getAccountNumber());
-            isClosed = true;
-        }
-        return isClosed;
-    }
+//    public boolean closeSavingsAccount() {
+//        boolean isClosed = false;
+//        if (checkBalance() == 0.00) {
+//            changeStatus("Closed");
+//            accountNumbersInUse.remove(getAccountNumber());
+//            isClosed = true;
+//        }
+//        return isClosed;
+//    }
 
     @Override
     public String toString() {

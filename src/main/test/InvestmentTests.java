@@ -81,22 +81,22 @@ public class InvestmentTests {
         assertTrue(investmentNum >= 666667 && investmentNum <= 999999);
     }
 
-    @Test
-    public void closeInvestmentTrue() {
-        Investment investment = new Investment();
-        investment.depositMoney(25.38);
-        investment.zeroBalance();
-
-        assertTrue(investment.closeInvestmentAccount());
-    }
-
-    @Test
-    public void closeInvestmentFalse() {
-        Investment investment = new Investment();
-        investment.depositMoney(49.36);
-
-        assertFalse(investment.closeInvestmentAccount());
-    }
+//    @Test
+//    public void closeInvestmentTrue() {
+//        Investment investment = new Investment();
+//        investment.depositMoney(25.38);
+//        investment.zeroBalance();
+//
+//        assertTrue(investment.closeInvestmentAccount());
+//    }
+//
+//    @Test
+//    public void closeInvestmentFalse() {
+//        Investment investment = new Investment();
+//        investment.depositMoney(49.36);
+//
+//        assertFalse(investment.closeInvestmentAccount());
+//    }
 
     @Test
     public void openInvestment() {
