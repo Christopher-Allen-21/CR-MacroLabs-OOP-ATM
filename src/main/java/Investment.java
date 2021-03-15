@@ -52,15 +52,7 @@ public class Investment extends BankAccounts{
         balance += (( annualInterestRate/ 12) *balance);
         return balance;
     }
-//    public boolean closeInvestmentAccount() {
-//        boolean isClosed = false;
-//        if (checkBalance() == 0.00) {
-//            changeStatus("Closed");
-//            accountNumbersInUse.remove(getAccountNumber());
-//            isClosed = true;
-//        }
-//        return isClosed;
-//    }
+
 
     @Override
     public String toString() {
