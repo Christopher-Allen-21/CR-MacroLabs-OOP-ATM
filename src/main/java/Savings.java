@@ -2,7 +2,7 @@
 
 public class Savings extends BankAccounts{
     Integer accountNumber = 000000;
-    double annualInterestRate;
+    double annualInterestRate = 0.01;
 
     public boolean transferFromSavings(BankAccounts accTransferTo, double amountToTransfer) {
         boolean enoughFunds = false;
