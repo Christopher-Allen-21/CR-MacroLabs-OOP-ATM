@@ -2,6 +2,8 @@
 
 public class Investment extends BankAccounts{
     Integer accountNumber = 000000;
+    double annualInterestRate;
+
 
     public boolean transferFromInvestments(BankAccounts accTransferTo, double amountToTransfer) {
         boolean enoughFunds = false;
@@ -46,7 +48,10 @@ public class Investment extends BankAccounts{
         balance = 0.00;
         status = "Open";
     }
-
+    public double annualMonthlyInterest(double balance){
+        balance += (( annualInterestRate/ 12) *balance);
+        return balance;
+    }
 //    public boolean closeInvestmentAccount() {
 //        boolean isClosed = false;
 //        if (checkBalance() == 0.00) {
