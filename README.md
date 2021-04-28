@@ -2,10 +2,10 @@
 Week 2 project: ATM Simulator
 
 ## Contributors
-- Chris Allen - @christopher-allen-21
-- Greg Donnelly - @gregdon13
-- Justin Banks - @jbanksalpha
-- Ashley Smart - @smartist17
+- Chris Allen, (@christopher-allen-21)
+- Greg Donnelly, (@gregdon13)
+- Justin Banks, (@jbanksalpha)
+- Ashley Smart, (@smartist17)
 
 ## ATM Requirements
 
