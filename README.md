@@ -1,6 +1,12 @@
 # project-2-ATM
 Week 2 project: ATM Simulator
 
+## Contributors
+Chris Allen - @christopher-allen-21
+Greg Donnelly - @gregdon13
+Justin Banks - @jbanksalpha
+Ashley Smart - @smartist17
+
 ## ATM Requirements
 
 Every feature must have corresponding unit tests
